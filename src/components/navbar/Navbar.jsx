@@ -4,20 +4,20 @@ import Toolbar from '@material-ui/core/Toolbar';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import TuneIcon from '@material-ui/icons/Tune';
 import { IconButton } from '@material-ui/core';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import useStyles from './UseStyles';
 
-const style = {
-  background: 'linear-gradient(45deg, #F15348 30%, #DA7B2F 90%)',
-  color: 'white',
-};
 export default function Navbar() {
+  const classes = useStyles();
   return (
-    <div>
-      <AppBar position="static" style={style}>
-        <Toolbar>
-          <IconButton edge="start" color="inherit">
+    <div className={classes.root}>
+      <CssBaseline />
+      <AppBar position="static" className={classes.navBar}>
+        <Toolbar className={classes.menuButton}>
+          <IconButton color="inherit">
             <NotificationsIcon />
           </IconButton>
-          <IconButton edge="end" color="inherit">
+          <IconButton color="inherit">
             <TuneIcon />
           </IconButton>
         </Toolbar>

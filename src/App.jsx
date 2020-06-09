@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Navbar from './components/navbar/Navbar';
 
