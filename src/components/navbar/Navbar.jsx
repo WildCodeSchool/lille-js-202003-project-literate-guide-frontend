@@ -13,10 +13,11 @@ export default function Navbar() {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="static" className={classes.navBar}>
-        <Toolbar className={classes.menuButton}>
+        <Toolbar className={classes.menuTool}>
           <IconButton color="inherit">
             <NotificationsIcon />
           </IconButton>
+          <img src="/logo.png" alt="logo" className={classes.img} />
           <IconButton color="inherit">
             <TuneIcon />
           </IconButton>
