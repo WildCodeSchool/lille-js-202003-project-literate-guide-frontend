@@ -1,11 +1,22 @@
 import React from 'react';
 import './App.scss';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import NavBar from './components/navbar/Navbar';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#F15348',
+      light: '#DA7B2F',
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">Hello React World</header>
-    </div>
+    <MuiThemeProvider theme={theme}>
+      <NavBar />
+    </MuiThemeProvider>
   );
 }
 
