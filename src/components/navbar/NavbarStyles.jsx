@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(() => ({
+const navbarStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
   },
@@ -19,4 +19,4 @@ const useStyles = makeStyles(() => ({
     width: '9rem',
   },
 }));
-export default useStyles;
+export default navbarStyles;
