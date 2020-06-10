@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Navbar from './components/navbar/Navbar';
+import NavBar from './components/navbar/Navbar';
 
 const theme = createMuiTheme({
   palette: {
@@ -15,7 +15,7 @@ const theme = createMuiTheme({
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
-      <Navbar />
+      <NavBar />
     </MuiThemeProvider>
   );
 }
