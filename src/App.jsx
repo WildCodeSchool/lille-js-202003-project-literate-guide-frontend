@@ -7,6 +7,17 @@ import Favoris from './components/favoris/Favoris';
 import Parcours from './components/parcours/Parcours';
 import Profil from './components/profil/Profil';
 import './App.scss';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import NavBar from './components/navbar/Navbar';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#F15348',
+      light: '#DA7B2F',
+    },
+  },
+});
 
 const theme = createMuiTheme({
   palette: {
@@ -42,6 +53,7 @@ function App() {
             <Route path="/Favoris" component={Favoris} />
             <Route path="/Profil" component={Profil} />
           </Switch>
+          <NavBar />
           <BottomBar />
         </MuiThemeProvider>
       </Router>
