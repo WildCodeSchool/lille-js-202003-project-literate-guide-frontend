@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -23,24 +24,32 @@ export default function LabelBottomNavigation() {
       showLabels
     >
       <BottomNavigationAction
+        component={Link}
+        to="/"
         className={classes.element}
         label="Explore"
         value="explore"
         icon={<ExploreIcon className={classes.icons} />}
       />
       <BottomNavigationAction
+        component={Link}
+        to="Parcours"
         className={classes.element}
         label="Parcours"
         value="parcours"
         icon={<DirectionsWalkIcon className={classes.icons} />}
       />
       <BottomNavigationAction
+        component={Link}
+        to="Favoris"
         className={classes.element}
         label="Favoris"
         value="favoris"
         icon={<FavoriteIcon className={classes.icons} />}
       />
       <BottomNavigationAction
+        component={Link}
+        to="Profil"
         className={classes.element}
         label="Profil"
         value="profil"
