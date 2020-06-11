@@ -11,11 +11,23 @@ import './App.scss';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#ffffff',
-    },
-    secondary: {
       main: '#F15348',
     },
+    secondary: {
+      main: '#FFFFFF',
+    },
+  },
+  typography: {
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Montserrat"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
   },
 });
 
@@ -23,13 +35,13 @@ function App() {
   return (
     <div>
       <Router>
-        <Switch>
-          <Route exact path="/" component={Explore} />
-          <Route path="/Parcours" component={Parcours} />
-          <Route path="/Favoris" component={Favoris} />
-          <Route path="/Profil" component={Profil} />
-        </Switch>
         <MuiThemeProvider theme={theme}>
+          <Switch>
+            <Route exact path="/" component={Explore} />
+            <Route path="/Parcours" component={Parcours} />
+            <Route path="/Favoris" component={Favoris} />
+            <Route path="/Profil" component={Profil} />
+          </Switch>
           <BottomBar />
         </MuiThemeProvider>
       </Router>

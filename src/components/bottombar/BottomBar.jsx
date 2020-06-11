@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import {
+  BottomNavigation,
+  BottomNavigationAction,
+  Fab,
+} from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
 import ExploreIcon from '@material-ui/icons/Explore';
@@ -26,7 +30,10 @@ export default function LabelBottomNavigation() {
       <BottomNavigationAction
         component={Link}
         to="/"
-        className={classes.element}
+        classes={{
+          root: classes.element,
+          selected: classes.selected,
+        }}
         label="Explore"
         value="explore"
         icon={<ExploreIcon className={classes.icons} />}
@@ -34,15 +41,24 @@ export default function LabelBottomNavigation() {
       <BottomNavigationAction
         component={Link}
         to="Parcours"
-        className={classes.element}
+        classes={{
+          root: classes.element,
+          selected: classes.selected,
+        }}
         label="Parcours"
         value="parcours"
         icon={<DirectionsWalkIcon className={classes.icons} />}
       />
+      <Fab color="primary" aria-label="add" className={classes.fabButton}>
+        <AddIcon />
+      </Fab>
       <BottomNavigationAction
         component={Link}
         to="Favoris"
-        className={classes.element}
+        classes={{
+          root: classes.element,
+          selected: classes.selected,
+        }}
         label="Favoris"
         value="favoris"
         icon={<FavoriteIcon className={classes.icons} />}
@@ -50,7 +66,10 @@ export default function LabelBottomNavigation() {
       <BottomNavigationAction
         component={Link}
         to="Profil"
-        className={classes.element}
+        classes={{
+          root: classes.element,
+          selected: classes.selected,
+        }}
         label="Profil"
         value="profil"
         icon={<AccountCircleIcon className={classes.icons} />}
