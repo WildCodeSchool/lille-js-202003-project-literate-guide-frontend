@@ -11,7 +11,6 @@ import NavBar from './components/navbar/Navbar';
 import './App.scss';
 import 'leaflet/dist/leaflet.css';
 
-
 const theme = createMuiTheme({
   palette: {
     primary: {
