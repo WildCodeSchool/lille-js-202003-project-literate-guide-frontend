@@ -6,10 +6,11 @@ import Explore from './components/explore/Explore';
 import Favoris from './components/favoris/Favoris';
 import Leaflet from './components/map/Map';
 import Parcours from './components/parcours/Parcours';
-import NavBar from './components/navbar/Navbar';
 import Profil from './components/profil/Profil';
+import NavBar from './components/navbar/Navbar';
 import './App.scss';
 import 'leaflet/dist/leaflet.css';
+
 
 const theme = createMuiTheme({
   palette: {
