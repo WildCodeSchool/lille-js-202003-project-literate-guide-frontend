@@ -1,16 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  BottomNavigation,
-  BottomNavigationAction,
-  Fab,
-} from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
 import ExploreIcon from '@material-ui/icons/Explore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import bottomBarStyles from './BottomBarStyles';
+import FabButton from '../fabbutton/FabButton';
 
 export default function LabelBottomNavigation() {
   const classes = bottomBarStyles();
@@ -49,9 +45,7 @@ export default function LabelBottomNavigation() {
         value="parcours"
         icon={<DirectionsWalkIcon className={classes.icons} />}
       />
-      <Fab color="primary" aria-label="add" className={classes.fabButton}>
-        <AddIcon />
-      </Fab>
+      <FabButton />
       <BottomNavigationAction
         component={Link}
         to="Favoris"
