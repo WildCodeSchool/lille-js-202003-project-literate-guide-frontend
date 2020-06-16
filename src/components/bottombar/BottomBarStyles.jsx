@@ -9,16 +9,16 @@ const bottomBarStyles = makeStyles({
     backgroundColor: '#F15348',
     display: 'flex',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   element: {
     color: 'white',
-    fontFamily: '"Montserrat"',
   },
   selected: {
     color: 'white',
   },
   icons: {
-    marginBottom: '0.4rem',
+    marginBottom: '0.3rem',
     color: 'white',
   },
   fabButton: {
