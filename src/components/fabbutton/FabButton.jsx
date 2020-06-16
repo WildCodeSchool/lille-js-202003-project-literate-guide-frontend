@@ -1,6 +1,7 @@
 import React from 'react';
 import Zoom from '@material-ui/core/Zoom';
 import { Fab } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import AddIcon from '@material-ui/icons/Add';
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
@@ -19,6 +20,8 @@ function FabButton() {
       <div className={classes.container}>
         <Zoom in={checked}>
           <Fab
+            component={Link}
+            to="AddCapsule"
             color="primary"
             aria-label="addCapsule"
             className={classes.addCapsule}
@@ -29,6 +32,8 @@ function FabButton() {
         </Zoom>
         <Zoom in={checked}>
           <Fab
+            component={Link}
+            to="AddParcours"
             color="primary"
             aria-label="addParcours"
             className={classes.addParcours}

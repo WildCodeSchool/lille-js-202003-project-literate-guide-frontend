@@ -10,6 +10,8 @@ import Profil from './components/profil/Profil';
 import NavBar from './components/navbar/Navbar';
 import './App.scss';
 import 'leaflet/dist/leaflet.css';
+import AddParcours from './components/addparcours/AddParcours';
+import AddCapsule from './components/addcapsule/AddCapsule';
 
 const theme = createMuiTheme({
   palette: {
@@ -47,6 +49,8 @@ function App() {
             <Route path="/Parcours" component={Parcours} />
             <Route path="/Favoris" component={Favoris} />
             <Route path="/Profil" component={Profil} />
+            <Route path="/AddCapsule" component={AddCapsule} />
+            <Route path="/AddParcours" component={AddParcours} />
           </Switch>
         </MuiThemeProvider>
       </Router>
