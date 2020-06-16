@@ -41,13 +41,13 @@ function App() {
         <MuiThemeProvider theme={theme}>
           <NavBar />
           <Leaflet />
+          <BottomBar />
           <Switch>
             <Route exact path="/" component={Explore} />
             <Route path="/Parcours" component={Parcours} />
             <Route path="/Favoris" component={Favoris} />
             <Route path="/Profil" component={Profil} />
           </Switch>
-          <BottomBar />
         </MuiThemeProvider>
       </Router>
     </div>
