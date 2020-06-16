@@ -12,13 +12,12 @@ const bottomBarStyles = makeStyles({
   },
   element: {
     color: 'white',
-    fontFamily: '"Montserrat"',
   },
   selected: {
     color: 'white',
   },
   icons: {
-    marginBottom: '0.4rem',
+    marginBottom: '0.3rem',
     color: 'white',
   },
 });
