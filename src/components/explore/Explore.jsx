@@ -18,8 +18,8 @@ const ListButtonStyles = makeStyles((theme) => ({
 function Explore() {
   const [checked, setChecked] = React.useState(false);
   const classes = ListButtonStyles();
-  const handleChange = (event, newValue) => {
-    setChecked(newValue);
+  const handleChange = () => {
+    setChecked((prev) => !prev);
   };
 
   return (
@@ -27,12 +27,14 @@ function Explore() {
       <Leaflet />
       {checked ? (
         <Fab
+          component={Link}
+          to="capsule"
           color="secondary"
           className={classes.root}
           aria-label="change"
           onClick={handleChange}
         >
-          <MapIcon color="primary" component={Link} to="capsule" />
+          <MapIcon color="primary" />
         </Fab>
       ) : (
         <Fab

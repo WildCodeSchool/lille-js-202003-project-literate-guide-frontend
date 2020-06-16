@@ -25,12 +25,14 @@ function Capsule() {
       <p>Capsule</p>
       {checked ? (
         <Fab
+          component={Link}
+          to="/"
           color="secondary"
           className={classes.root}
           aria-label="change"
           onClick={handleChange}
         >
-          <ListIcon color="primary" component={Link} to="/" />
+          <ListIcon color="primary" />
         </Fab>
       ) : (
         <Fab
