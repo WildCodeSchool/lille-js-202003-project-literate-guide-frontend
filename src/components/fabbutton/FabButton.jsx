@@ -3,6 +3,7 @@ import Zoom from '@material-ui/core/Zoom';
 import { Fab } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
 import fabButtonStyles from './FabButtonStyles';
@@ -49,7 +50,7 @@ function FabButton() {
         className={classes.fabButton}
         onClick={handleChange}
       >
-        <AddIcon />
+        {checked ? <RemoveIcon /> : <AddIcon />}
       </Fab>
     </div>
   );
