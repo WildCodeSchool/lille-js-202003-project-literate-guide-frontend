@@ -1,10 +1,9 @@
 import React from 'react';
+import { Fab } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 import ListIcon from '@material-ui/icons/List';
 import MapIcon from '@material-ui/icons/Map';
-import { Fab } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
-import Leaflet from '../map/Map';
 
 const ListButtonStyles = makeStyles((theme) => ({
   root: {
@@ -15,16 +14,15 @@ const ListButtonStyles = makeStyles((theme) => ({
   },
 }));
 
-function Explore() {
+function Capsule() {
   const [checked, setChecked] = React.useState(false);
   const classes = ListButtonStyles();
-  const handleChange = (event, newValue) => {
-    setChecked(newValue);
+  const handleChange = () => {
+    setChecked((prev) => !prev);
   };
-
   return (
     <div>
-      <Leaflet />
+      <p>Capsule</p>
       {checked ? (
         <Fab
           color="secondary"
@@ -32,7 +30,7 @@ function Explore() {
           aria-label="change"
           onClick={handleChange}
         >
-          <MapIcon color="primary" component={Link} to="capsule" />
+          <ListIcon color="primary" component={Link} to="/" />
         </Fab>
       ) : (
         <Fab
@@ -41,11 +39,11 @@ function Explore() {
           aria-label="change"
           onClick={handleChange}
         >
-          <ListIcon color="primary" />
+          <MapIcon color="primary" />
         </Fab>
       )}
     </div>
   );
 }
 
-export default Explore;
+export default Capsule;
