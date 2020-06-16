@@ -1,23 +1,19 @@
 import React from 'react';
 import ListIcon from '@material-ui/icons/List';
+import MapIcon from '@material-ui/icons/Map';
 import { Fab } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-
-const listButtonStyles = makeStyles({
-  root: {
-    background: '#FFFFFF',
-    zIndex: 2,
-    position: 'absolute',
-    bottom: '90px',
-    right: '27px',
-  },
-});
+import listButtonStyles from './ListButtonStyle';
 
 export default function ListButton() {
   const classes = listButtonStyles();
+  const [checked, setChecked] = React.useState(false);
+
+  const handleChange = () => {
+    setChecked((prev) => !prev);
+  };
   return (
-    <Fab className={classes.root} aria-label="add">
-      <ListIcon color="primary" />
+    <Fab className={classes.root} aria-label="add" onClick={handleChange}>
+      {checked ? <MapIcon color="primary" /> : <ListIcon color="primary" />}
     </Fab>
   );
 }
