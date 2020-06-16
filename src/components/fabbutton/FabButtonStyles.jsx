@@ -14,7 +14,7 @@ const fabButtonStyles = makeStyles({
   },
   fabButton: {
     position: 'absolute',
-    top: -30,
+    top: -26,
   },
   addCapsule: {
     marginRight: '0.7rem',
