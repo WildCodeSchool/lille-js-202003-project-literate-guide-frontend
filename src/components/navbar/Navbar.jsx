@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { IconButton, SwipeableDrawer } from '@material-ui/core';
@@ -9,10 +9,13 @@ import NavBarStyles from './NavbarStyles';
 import TabTag from '../tabtag/TabTag';
 
 export default function NavBar() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
-  const toggleDrawer = () => {
+  const openDrawer = () => {
     setOpen(true);
+  };
+  const closeDrawer = () => {
+    setOpen(false);
   };
 
   const classes = NavBarStyles();
@@ -25,17 +28,13 @@ export default function NavBar() {
             <NotificationsIcon />
           </IconButton>
           <img src="/images/logo.png" alt="logo" className={classes.img} />
-          <IconButton onClick={toggleDrawer} color="inherit">
+          <IconButton onClick={openDrawer} color="inherit">
             <TuneIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
       <div>
-        <SwipeableDrawer
-          anchor="right"
-          open={open}
-          onClose={() => setOpen(false)}
-        >
+        <SwipeableDrawer anchor="right" open={open} onClose={closeDrawer}>
           <TabTag />
         </SwipeableDrawer>
       </div>
