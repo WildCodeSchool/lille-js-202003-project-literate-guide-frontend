@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles({
   tags: {
@@ -14,25 +13,47 @@ const useStyles = makeStyles({
   title: {
     textTransform: 'uppercase',
     fontWeight: 'bold',
+    textAlign: 'center',
     fontSize: '1.3rem',
   },
   subTitle: {
     fontWeight: 'bold',
-    fontSize: '1.3rem',
-    paddingBottom: '30px',
-    paddingTop: '20px',
+    paddingBottom: '15px',
+    paddingTop: '15px',
+    textAlign: 'center',
+  },
+  subTag: {
+    listStyleType: 'none',
+    display: 'flex',
+    flexRow: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
   },
   hr: {
     width: '70%',
-    marginTop: '30px',
+    marginTop: '20px',
+    color: 'white',
   },
   butt: {
-    borderRadius: '60px',
+    borderRadius: '15px',
+    padding: '6px',
+    width: '80px',
+    fontSize: '10px',
     borderColor: 'white',
     border: '1px solid',
-    fontSize: '0.9rem',
-    margin: '2px',
-    textTransform: 'lowercase',
+    margin: '3px',
+    '&:hover': {
+      cursor: 'pointer',
+      color: '#000000',
+      backgroundColor: '#ffffff',
+    },
+    '&:active': {
+      cursor: 'pointer',
+      color: '#000000',
+      backgroundColor: '#ffffff',
+    },
   },
 });
 
@@ -43,7 +64,9 @@ export default function TabBar() {
     <>
       <div className={classes.tags}>
         <div>
-          <h2 className={classes.title}>Choisissez vos centres intérêts</h2>
+          <h2 className={classes.title}>
+            Choisissez vos centres d&apos;intérêts
+          </h2>
         </div>
         <hr className={classes.hr} />
         <div>
@@ -51,16 +74,14 @@ export default function TabBar() {
         </div>
         <div>
           <ul className={classes.subTag}>
-            <li>
-              <Button className={classes.butt}>Quartier</Button>
-              <Button className={classes.butt}>Place</Button>
-              <Button className={classes.butt}>Rue</Button>
-              <Button className={classes.butt}>Monument</Button>
-              <Button className={classes.butt}>Musée</Button>
-              <Button className={classes.butt}>Parc</Button>
-              <Button className={classes.butt}>Street Art</Button>
-              <Button className={classes.butt}>Curiosité</Button>
-            </li>
+            <li className={classes.butt}>Quartier</li>
+            <li className={classes.butt}>Place</li>
+            <li className={classes.butt}>Rue</li>
+            <li className={classes.butt}>Monument</li>
+            <li className={classes.butt}>Musée</li>
+            <li className={classes.butt}>Parc</li>
+            <li className={classes.butt}>Street Art</li>
+            <li className={classes.butt}>Curiosité</li>
           </ul>
         </div>
         <hr className={classes.hr} />
@@ -68,14 +89,12 @@ export default function TabBar() {
           <h2 className={classes.subTitle}>Styles</h2>
         </div>
         <div>
-          <ul>
-            <li className={classes.subTag}>
-              <Button className={classes.butt}>Enfants</Button>
-              <Button className={classes.butt}>Humous</Button>
-              <Button className={classes.butt}>Quizz</Button>
-              <Button className={classes.butt}>Teaser</Button>
-              <Button className={classes.butt}>Name</Button>
-            </li>
+          <ul className={classes.subTag}>
+            <li className={classes.butt}>Enfants</li>
+            <li className={classes.butt}>Humour</li>
+            <li className={classes.butt}>Quizz</li>
+            <li className={classes.butt}>Teaser</li>
+            <li className={classes.butt}>Name</li>
           </ul>
         </div>
       </div>
