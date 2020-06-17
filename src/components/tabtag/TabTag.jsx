@@ -1,4 +1,5 @@
 import React from 'react';
+import Chip from '@material-ui/core/Chip';
 import TabTagStyles from './TabTagStyles';
 
 export default function TabBar() {
@@ -16,30 +17,105 @@ export default function TabBar() {
         <div>
           <h2 className={classes.subTitle}>Types</h2>
         </div>
+
         <div>
-          <ul className={classes.subTag}>
-            <li className={classes.butt}>Quartier</li>
-            <li className={classes.butt}>Place</li>
-            <li className={classes.butt}>Rue</li>
-            <li className={classes.butt}>Monument</li>
-            <li className={classes.butt}>Musée</li>
-            <li className={classes.butt}>Parc</li>
-            <li className={classes.butt}>Street Art</li>
-            <li className={classes.butt}>Curiosité</li>
-          </ul>
+          <Chip
+            className={classes.chip}
+            label="Quartier"
+            variant="outlined"
+            color="secondary"
+            size="small"
+          />
+          <Chip
+            className={classes.chip}
+            label="Place"
+            variant="outlined"
+            color="secondary"
+            size="small"
+          />
+          <Chip
+            className={classes.chip}
+            label="Rue"
+            variant="outlined"
+            color="secondary"
+            size="small"
+          />
+          <Chip
+            className={classes.chip}
+            label="Monument"
+            variant="outlined"
+            color="secondary"
+            size="small"
+          />
+          <Chip
+            className={classes.chip}
+            label="Musée"
+            variant="outlined"
+            color="secondary"
+            size="small"
+          />
+          <Chip
+            className={classes.chip}
+            label="Parc"
+            variant="outlined"
+            color="secondary"
+            size="small"
+          />
+          <Chip
+            className={classes.chip}
+            label="Street Art"
+            variant="outlined"
+            color="secondary"
+            size="small"
+          />
+          <Chip
+            className={classes.chip}
+            label="Curiosité"
+            variant="outlined"
+            color="secondary"
+            size="small"
+          />
         </div>
         <hr className={classes.hr} />
         <div>
           <h2 className={classes.subTitle}>Styles</h2>
         </div>
         <div>
-          <ul className={classes.subTag}>
-            <li className={classes.butt}>Enfants</li>
-            <li className={classes.butt}>Humour</li>
-            <li className={classes.butt}>Quizz</li>
-            <li className={classes.butt}>Teaser</li>
-            <li className={classes.butt}>Name</li>
-          </ul>
+          <Chip
+            className={classes.chip}
+            label="Enfants"
+            variant="outlined"
+            color="secondary"
+            size="small"
+          />
+          <Chip
+            className={classes.chip}
+            label="Humour"
+            variant="outlined"
+            color="secondary"
+            size="small"
+          />
+          <Chip
+            className={classes.chip}
+            label="Quizz"
+            variant="outlined"
+            color="secondary"
+            size="small"
+          />
+          <Chip
+            className={classes.chip}
+            label="Teaser"
+            variant="outlined"
+            color="secondary"
+            size="small"
+          />
+          <Chip
+            className={classes.chip}
+            label="Name"
+            variant="outlined"
+            color="secondary"
+            size="small"
+          />
         </div>
       </div>
     </>

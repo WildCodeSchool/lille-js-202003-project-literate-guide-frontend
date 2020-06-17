@@ -35,19 +35,8 @@ const TabTagStyles = makeStyles({
     marginTop: '20px',
     color: 'white',
   },
-  butt: {
-    borderRadius: '15px',
-    padding: '6px',
-    width: '80px',
-    fontSize: '10px',
-    borderColor: 'white',
-    border: '1px solid',
+  chip: {
     margin: '3px',
-    '&:hover': {
-      cursor: 'pointer',
-      color: '#000000',
-      backgroundColor: '#ffffff',
-    },
   },
 });
 export default TabTagStyles;
