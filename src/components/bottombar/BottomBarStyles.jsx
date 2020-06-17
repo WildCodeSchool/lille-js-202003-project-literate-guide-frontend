@@ -9,7 +9,6 @@ const bottomBarStyles = makeStyles({
     backgroundColor: '#F15348',
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: 'center',
   },
   element: {
     color: 'white',
@@ -20,14 +19,6 @@ const bottomBarStyles = makeStyles({
   icons: {
     marginBottom: '0.3rem',
     color: 'white',
-  },
-  fabButton: {
-    position: 'absolute',
-    zIndex: 1,
-    top: -30,
-    left: 0,
-    right: 0,
-    margin: '0 auto',
   },
 });
 
