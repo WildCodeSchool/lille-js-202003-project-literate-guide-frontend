@@ -22,7 +22,7 @@ function App() {
             <Route path="/Parcours" component={Parcours} />
             <Route path="/Favoris" component={Favoris} />
             <Route path="/Profil" component={Profil} />
-            <Route path="/capsule" component={Capsule} />
+            <Route path="/capsules" component={Capsule} />
           </Switch>
           <BottomBar />
         </MuiThemeProvider>
