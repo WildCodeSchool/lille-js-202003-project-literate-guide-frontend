@@ -9,6 +9,8 @@ import Parcours from './components/parcours/Parcours';
 import Profil from './components/profil/Profil';
 import NavBar from './components/navbar/Navbar';
 import 'leaflet/dist/leaflet.css';
+import AddParcours from './components/addparcours/AddParcours';
+import AddCapsule from './components/addcapsule/AddCapsule';
 import theme from './Theme';
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
             <Route path="/Favoris" component={Favoris} />
             <Route path="/Profil" component={Profil} />
             <Route path="/capsules" component={Capsule} />
+            <Route path="/AddCapsule" component={AddCapsule} />
+            <Route path="/AddParcours" component={AddParcours} />
           </Switch>
           <BottomBar />
         </MuiThemeProvider>
