@@ -4,12 +4,14 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import BottomBar from './components/bottombar/BottomBar';
 import Explore from './components/explore/Explore';
 import Favoris from './components/favoris/Favoris';
-import Leaflet from './components/map/Map';
+import Maptest from './components/map/Maptest';
 import Parcours from './components/parcours/Parcours';
 import Profil from './components/profil/Profil';
 import NavBar from './components/navbar/Navbar';
 import './App.scss';
 import 'leaflet/dist/leaflet.css';
+
+
 
 const theme = createMuiTheme({
   palette: {
@@ -40,7 +42,7 @@ function App() {
       <Router>
         <MuiThemeProvider theme={theme}>
           <NavBar />
-          <Leaflet />
+          <Maptest />
           <Switch>
             <Route exact path="/" component={Explore} />
             <Route path="/Parcours" component={Parcours} />
