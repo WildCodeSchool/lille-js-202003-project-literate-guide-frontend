@@ -5,11 +5,11 @@ const useCurrentLocation = (options = {}) => {
   const [location, setLocation] = useState();
   const [error, setError] = useState();
   const handleSuccess = (pos) => {
-    const { latitude, longitude } = pos.coords;
+    const { lat, lng } = pos.coords;
 
     setLocation({
-      latitude,
-      longitude,
+      lat,
+      lng,
     });
   };
   const handleError = (err) => {

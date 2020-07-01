@@ -7,7 +7,7 @@ const theme = createMuiTheme({
         color: 'white',
       },
       textPrimary: {
-        backgroundColor: '#15348',
+        backgroundColor: '#F15348',
         borderRadius: '30%',
         boxShadow: 'none',
       },
