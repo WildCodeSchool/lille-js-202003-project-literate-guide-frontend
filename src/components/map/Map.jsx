@@ -3,7 +3,7 @@ import { Map, TileLayer, CircleMarker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 const geolocationOptions = {
-  enableHighAccuracy: false,
+  enableHighAccuracy: true,
   timeout: 1000 * 60 * 3, // 3 min (1000 ms * 60 sec * 3 minute)
   maximumAge: 1000 * 3600 * 24, // 24 hour
 };
