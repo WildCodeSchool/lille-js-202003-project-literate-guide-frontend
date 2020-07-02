@@ -3,6 +3,10 @@ import MapIcon from '@material-ui/icons/Map';
 import axios from 'axios';
 import { Fab } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import Card from '@material-ui/core/Card';
+import Typography from '@material-ui/core/Typography';
+import Chip from '@material-ui/core/Chip';
+import ReactPlayer from 'react-player';
 import { makeStyles } from '@material-ui/core/styles';
 
 const ListButtonStyles = makeStyles((theme) => ({
@@ -12,6 +16,21 @@ const ListButtonStyles = makeStyles((theme) => ({
     bottom: theme.spacing(11),
     right: theme.spacing(2),
   },
+  outcard: {
+    marginTop: 20,
+    marginLeft: 20,
+    maxWidth: 300,
+  },
+  title: {
+    color: '#F15348',
+    fontWeight: 'bold',
+  },
+  chip: {
+    margin: '3px',
+  },
+  description: {
+    fontWeight: 'bold',
+  },
 }));
 
 const CapsuleList = () => {
@@ -20,7 +39,7 @@ const CapsuleList = () => {
 
   const getCapsules = () => {
     axios
-      .get('http://localhost:8000/capsules')
+      .get('http://localhost:4242/capsules')
       .then((res) => {
         setCapsules(res.data[0]);
       })
@@ -35,8 +54,52 @@ const CapsuleList = () => {
 
   return (
     <div>
-      <h2>{capsules.capsule_name}</h2>
-      <p>{capsules.description}</p>
+      <Card className={classes.outcard}>
+        <Typography className={classes.title}>
+          {capsules.capsule_name}
+        </Typography>
+        <ReactPlayer url={capsules.url_video} width="290" height="100" />
+        <Typography className={classes.description}>
+          {capsules.description}
+        </Typography>
+        <div>
+          <Chip
+            className={classes.chip}
+            label="Quartier"
+            variant="outlined"
+            color="primary"
+            size="small"
+          />
+          <Chip
+            className={classes.chip}
+            label="Place"
+            variant="outlined"
+            color="primary"
+            size="small"
+          />
+          <Chip
+            className={classes.chip}
+            label="Rue"
+            variant="outlined"
+            color="primary"
+            size="small"
+          />
+          <Chip
+            className={classes.chip}
+            label="Monument"
+            variant="outlined"
+            color="primary"
+            size="small"
+          />
+          <Chip
+            className={classes.chip}
+            label="Musée"
+            variant="outlined"
+            color="primary"
+            size="small"
+          />
+        </div>
+      </Card>
       <Fab
         component={Link}
         to="/"
@@ -50,4 +113,24 @@ const CapsuleList = () => {
   );
 };
 
+//   return (
+//     <>
+//       {capsules[0] && (
+//         <div>
+//           <h2>{capsules[0].capsule_name}</h2>
+//           <p>{capsules[0].description}</p>
+//           <Fab
+//             component={Link}
+//             to="/"
+//             color="secondary"
+//             className={classes.root}
+//             aria-label="change"
+//           >
+//             <MapIcon color="primary" />
+//           </Fab>
+//         </div>
+//       )}
+//     </>
+//   );
+// };
 export default CapsuleList;
