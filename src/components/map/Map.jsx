@@ -24,5 +24,4 @@ const Leaflet = () => {
     </>
   );
 };
-
 export default Leaflet;
