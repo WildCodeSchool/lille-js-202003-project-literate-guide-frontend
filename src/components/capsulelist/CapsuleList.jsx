@@ -28,12 +28,17 @@ const ListButtonStyles = makeStyles((theme) => ({
     color: '#F15348',
     fontWeight: 'bold',
     marginBottom: 10,
+    marginTop: 5,
+    marginLeft: 10,
   },
   video: {
     marginBottom: 7,
+    marginLeft: 5,
+    marginRight: 5,
   },
   outchip: {
     display: 'flex',
+    marginBottom: 7,
   },
   chip: {
     margin: '3px',
