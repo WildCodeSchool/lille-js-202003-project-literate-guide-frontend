@@ -19,17 +19,37 @@ const ListButtonStyles = makeStyles((theme) => ({
   outcard: {
     marginTop: 20,
     marginLeft: 20,
-    maxWidth: 300,
+    maxWidth: 350,
+    display: 'flex',
+    flexDirection: 'column',
+    marginBottom: 15,
   },
   title: {
     color: '#F15348',
     fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  video: {
+    marginBottom: 7,
+  },
+  outchip: {
+    display: 'flex',
   },
   chip: {
     margin: '3px',
   },
   description: {
     fontWeight: 'bold',
+    marginBottom: 10,
+    width: 250,
+  },
+  descriDuree: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+  },
+  duree: {
+    color: '#F15348',
   },
 }));
 
@@ -58,11 +78,21 @@ const CapsuleList = () => {
         <Typography className={classes.title}>
           {capsules.capsule_name}
         </Typography>
-        <ReactPlayer url={capsules.url_video} width="290" height="100" />
-        <Typography className={classes.description}>
-          {capsules.description}
-        </Typography>
-        <div>
+        <ReactPlayer
+          className={classes.video}
+          url={capsules.url_video}
+          width="290"
+          height="100"
+        />
+        <div className={classes.descriDuree}>
+          <Typography className={classes.description}>
+            {capsules.description}
+          </Typography>
+          <Typography className={classes.duree}>
+            {capsules.duration_video} sec
+          </Typography>
+        </div>
+        <div className={classes.outchip}>
           <Chip
             className={classes.chip}
             label="Quartier"
