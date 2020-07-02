@@ -22,7 +22,7 @@ const CapsuleList = () => {
     axios
       .get('http://localhost:8000/capsules')
       .then((res) => {
-        setCapsules(res.data[0]);
+        setCapsules(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -34,19 +34,23 @@ const CapsuleList = () => {
   }, []);
 
   return (
-    <div>
-      <h2>{capsules.capsule_name}</h2>
-      <p>{capsules.description}</p>
-      <Fab
-        component={Link}
-        to="/"
-        color="secondary"
-        className={classes.root}
-        aria-label="change"
-      >
-        <MapIcon color="primary" />
-      </Fab>
-    </div>
+    <>
+      {capsules[0] && (
+        <div>
+          <h2>{capsules[0].capsule_name}</h2>
+          <p>{capsules[0].description}</p>
+          <Fab
+            component={Link}
+            to="/"
+            color="secondary"
+            className={classes.root}
+            aria-label="change"
+          >
+            <MapIcon color="primary" />
+          </Fab>
+        </div>
+      )}
+    </>
   );
 };
 
