@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import MapIcon from '@material-ui/icons/Map';
+import axios from 'axios';
 import { Fab } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import MapIcon from '@material-ui/icons/Map';
 
 const ListButtonStyles = makeStyles((theme) => ({
   root: {
@@ -13,12 +14,29 @@ const ListButtonStyles = makeStyles((theme) => ({
   },
 }));
 
-function Capsule() {
+const CapsuleList = () => {
   const classes = ListButtonStyles();
+  const [capsules, setCapsules] = useState([]);
+
+  const getCapsules = () => {
+    axios
+      .get('http://localhost:8000/capsules')
+      .then((res) => {
+        setCapsules(res.data[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getCapsules();
+  }, []);
 
   return (
     <div>
-      <p>Capsules</p>
+      <h2>{capsules.capsule_name}</h2>
+      <p>{capsules.description}</p>
       <Fab
         component={Link}
         to="/"
@@ -30,6 +48,6 @@ function Capsule() {
       </Fab>
     </div>
   );
-}
+};
 
-export default Capsule;
+export default CapsuleList;
