@@ -66,7 +66,7 @@ const CapsuleList = () => {
     axios
       .get('http://localhost:4242/capsules')
       .then((res) => {
-        setCapsules(res.data[0]);
+        setCapsules(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -78,73 +78,77 @@ const CapsuleList = () => {
   }, []);
 
   return (
-    <div>
-      <Card className={classes.outcard}>
-        <Typography className={classes.title}>
-          {capsules.capsule_name}
-        </Typography>
-        <ReactPlayer
-          className={classes.video}
-          url={capsules.url_video}
-          width="290"
-          height="100"
-        />
-        <div className={classes.descriDuree}>
-          <Typography className={classes.description}>
-            {capsules.description}
-          </Typography>
-          <Typography className={classes.duree}>
-            {capsules.duration_video} sec
-          </Typography>
+    <>
+      {capsules[0] && (
+        <div>
+          <Card className={classes.outcard}>
+            <Typography className={classes.title}>
+              {capsules[0].capsule_name}
+            </Typography>
+            <ReactPlayer
+              className={classes.video}
+              url={capsules[0].url_video}
+              width="290"
+              height="100"
+            />
+            <div className={classes.descriDuree}>
+              <Typography className={classes.description}>
+                {capsules[0].description}
+              </Typography>
+              <Typography className={classes.duree}>
+                {capsules[0].duration_video} sec
+              </Typography>
+            </div>
+            <div className={classes.outchip}>
+              <Chip
+                className={classes.chip}
+                label="Quartier"
+                variant="outlined"
+                color="primary"
+                size="small"
+              />
+              <Chip
+                className={classes.chip}
+                label="Place"
+                variant="outlined"
+                color="primary"
+                size="small"
+              />
+              <Chip
+                className={classes.chip}
+                label="Rue"
+                variant="outlined"
+                color="primary"
+                size="small"
+              />
+              <Chip
+                className={classes.chip}
+                label="Monument"
+                variant="outlined"
+                color="primary"
+                size="small"
+              />
+              <Chip
+                className={classes.chip}
+                label="Musée"
+                variant="outlined"
+                color="primary"
+                size="small"
+              />
+            </div>
+          </Card>
+          <Fab
+            component={Link}
+            to="/"
+            color="secondary"
+            className={classes.root}
+            aria-label="change"
+          >
+            <MapIcon color="primary" />
+          </Fab>
         </div>
-        <div className={classes.outchip}>
-          <Chip
-            className={classes.chip}
-            label="Quartier"
-            variant="outlined"
-            color="primary"
-            size="small"
-          />
-          <Chip
-            className={classes.chip}
-            label="Place"
-            variant="outlined"
-            color="primary"
-            size="small"
-          />
-          <Chip
-            className={classes.chip}
-            label="Rue"
-            variant="outlined"
-            color="primary"
-            size="small"
-          />
-          <Chip
-            className={classes.chip}
-            label="Monument"
-            variant="outlined"
-            color="primary"
-            size="small"
-          />
-          <Chip
-            className={classes.chip}
-            label="Musée"
-            variant="outlined"
-            color="primary"
-            size="small"
-          />
-        </div>
-      </Card>
-      <Fab
-        component={Link}
-        to="/"
-        color="secondary"
-        className={classes.root}
-        aria-label="change"
-      >
-        <MapIcon color="primary" />
-      </Fab>
-    </div>
+      )}
+    </>
   );
 };
 
