@@ -1,9 +1,10 @@
 import React from 'react';
+import Leaflet from '../map/Map';
 
 function Parcours() {
   return (
     <div>
-      <p>Parcours</p>
+      <Leaflet />
     </div>
   );
 }
