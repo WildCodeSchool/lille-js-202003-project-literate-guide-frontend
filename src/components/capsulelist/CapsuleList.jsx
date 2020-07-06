@@ -148,24 +148,4 @@ const CapsuleList = () => {
   );
 };
 
-//   return (
-//     <>
-//       {capsules[0] && (
-//         <div>
-//           <h2>{capsules[0].capsule_name}</h2>
-//           <p>{capsules[0].description}</p>
-//           <Fab
-//             component={Link}
-//             to="/"
-//             color="secondary"
-//             className={classes.root}
-//             aria-label="change"
-//           >
-//             <MapIcon color="primary" />
-//           </Fab>
-//         </div>
-//       )}
-//     </>
-//   );
-// };
 export default CapsuleList;
