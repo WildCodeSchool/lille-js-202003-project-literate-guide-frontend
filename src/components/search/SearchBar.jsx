@@ -24,7 +24,7 @@ function SearchBar() {
   const completeInput = (value) => {
     setValue({ address: value, autocomplete: [] });
     axios
-      .get(`https://api-adresse.data.gouv.fr/search/?q=${value.address}`)
+      .get(`https://api-adresse.data.gouv.fr/search/?q=${value}`)
       .then((res) => {
         const longitude = res.data.features[0].geometry.coordinates[1];
         const latitude = res.data.features[0].geometry.coordinates[0];

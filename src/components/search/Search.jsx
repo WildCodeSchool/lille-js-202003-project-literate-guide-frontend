@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+// import SearchStyles from './SearchStyles';
 
 class Search extends Component {
   constructor(props) {
@@ -11,29 +12,32 @@ class Search extends Component {
       address: '',
       autocomplete: [],
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.completeInput = this.completeInput.bind(this);
+    this.autoComplete = this.autoComplete.bind(this);
   }
 
-  handleChange = (e) => {
+  handleChange(e) {
     this.setState({ address: e.target.value });
     axios
-      .get('https://api-adresse.data.gouv.fr/search/?q=' + e.target.value)
+      .get(`https://api-adresse.data.gouv.fr/search/?q=${e.target.value}`)
       .then((res) => {
         this.setState({ autocomplete: res.data.features });
       });
-  };
+  }
 
-  completeInput = (value) => {
+  completeInput(value) {
     this.setState({ address: value, autocomplete: [] });
     axios
-      .get('https://api-adresse.data.gouv.fr/search/?q=' + value)
+      .get(`https://api-adresse.data.gouv.fr/search/?q=${value}`)
       .then((res) => {
         const longitude = res.data.features[0].geometry.coordinates[1];
         const latitude = res.data.features[0].geometry.coordinates[0];
         this.setState({ center: [longitude, latitude] });
       });
-  };
+  }
 
-  autoComplete = () => {
+  autoComplete() {
     const addresses = this.state.autocomplete;
     return (
       <div>
@@ -50,7 +54,7 @@ class Search extends Component {
         })}
       </div>
     );
-  };
+  }
 
   render() {
     return (

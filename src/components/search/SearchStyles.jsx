@@ -39,4 +39,4 @@ const SearchStyles = makeStyles((theme) => ({
     },
   },
 }));
-export default SearchStyles;
+export default withStyles(SearchStyles);
