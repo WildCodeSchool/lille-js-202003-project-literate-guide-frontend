@@ -10,7 +10,6 @@ import ReactPlayer from 'react-player';
 import { makeStyles } from '@material-ui/core/styles';
 import Rating from '../rating/Rating';
 
-
 const ListButtonStyles = makeStyles((theme) => ({
   root: {
     zIndex: 20,
@@ -87,6 +86,7 @@ const CapsuleList = () => {
             <Typography className={classes.title}>
               {capsules[0].capsule_name}
             </Typography>
+            <Rating />
             <ReactPlayer
               className={classes.video}
               url={capsules[0].url_video}
