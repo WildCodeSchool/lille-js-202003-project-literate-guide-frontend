@@ -40,11 +40,11 @@ class Search extends Component {
         {addresses.map((address, i) => {
           return (
             <p key={i}>
-              <button
+              <span
                 onClick={() => this.completeInput(address.properties.label)}
               >
                 {address.properties.label}
-              </button>
+              </span>
             </p>
           );
         })}
@@ -63,7 +63,7 @@ class Search extends Component {
             style={{ width: '300px' }}
             type="text"
             name="address"
-            onChange={this.handleChanges}
+            onChange={this.handleChange}
             autoComplete="off"
             value={this.state.address}
             placeholder="Recherche une adresse"
