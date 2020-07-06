@@ -1,13 +1,13 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const theme = createMuiTheme({
+const Theme = createMuiTheme({
   overrides: {
     MuiButton: {
       text: {
         color: 'white',
       },
       textPrimary: {
-        backgroundColor: '#15348',
+        backgroundColor: '#F15348',
         borderRadius: '30%',
         boxShadow: 'none',
       },
@@ -40,4 +40,4 @@ const theme = createMuiTheme({
     ].join(','),
   },
 });
-export default theme;
+export default Theme;
