@@ -26,7 +26,7 @@ function App() {
               <Route path="/Parcours" component={Parcours} />
               <Route path="/Favoris" component={Favoris} />
               <Route path="/Profil" component={Profil} />
-              <Route path="/capsules" component={Capsule} />
+              <Route path="/capsules" component={CapsuleList} />
               <Route path="/AddCapsule" component={AddCapsule} />
               <Route path="/AddParcours" component={AddParcours} />
             </Switch>

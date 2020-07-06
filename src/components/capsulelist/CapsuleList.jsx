@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import ReactPlayer from 'react-player';
 import { makeStyles } from '@material-ui/core/styles';
+import Rating from '../rating/Rating';
 
 const ListButtonStyles = makeStyles((theme) => ({
   root: {
@@ -83,6 +84,7 @@ const CapsuleList = () => {
         <Typography className={classes.title}>
           {capsules.capsule_name}
         </Typography>
+        <Rating />
         <ReactPlayer
           className={classes.video}
           url={capsules.url_video}
