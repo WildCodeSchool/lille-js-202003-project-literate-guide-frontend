@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { Map, TileLayer, CircleMarker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { LocationContext } from '../../contexts/LocationContext';
+import Search from '../search/Search';
 
 const Leaflet = () => {
   const value = useContext(LocationContext);
   return (
     <>
+      <Search />
       <Map center={value} zoom={16} style={{ height: '85vh', zIndex: 0 }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
