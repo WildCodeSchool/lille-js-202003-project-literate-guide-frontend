@@ -3,37 +3,34 @@ import axios from 'axios';
 import InputBase from '@material-ui/core/InputBase';
 
 function SearchBar() {
-  const [location, setValue] = useState({
+  const [location, setLocation] = useState({
     center: [50.633333, 3.066667],
-    zoom: 22,
     address: '',
     autocomplete: [],
   });
 
   const handleChange = (e) => {
-    setValue({ address: e.target.value });
+    setLocation({ address: e.target.value });
     axios
-      .get(`https://api-adresse.data.gouv.fr/search/?q=${e.address}`)
+      .get(`https://api-adresse.data.gouv.fr/search/?q=${e.target.value}`)
       .then((res) => {
-        const latitude = res.data.features[0].geometry.coordinates[0];
-        const longitude = res.data.features[0].geometry.coordinates[1];
-        setValue({ center: [latitude, longitude] });
+        setLocation({ autocomplete: res.data.features });
       });
   };
 
   const completeInput = (value) => {
-    setValue({ address: value, autocomplete: [] });
+    setLocation({ address: value, autocomplete: [] });
     axios
       .get(`https://api-adresse.data.gouv.fr/search/?q=${value}`)
       .then((res) => {
         const longitude = res.data.features[0].geometry.coordinates[1];
         const latitude = res.data.features[0].geometry.coordinates[0];
-        setValue({ center: [longitude, latitude] });
+        setLocation({ center: [longitude, latitude] });
       });
   };
 
-  const autoComplete = () => {
-    const addresses = location.autocomplete;
+  const autoCompleted = () => {
+    const addresses = setLocation(location.autocomplete);
     return (
       <div>
         {addresses.map((address, i) => {
@@ -56,14 +53,14 @@ function SearchBar() {
           style={{ width: '300px' }}
           type="text"
           name="address"
-          onChange={(e) => handleChange(e)}
+          onChange={handleChange}
           autoComplete="off"
           value={location.address}
           placeholder="Recherche une adresse"
           autoCorrect="off"
         />
       </form>
-      <div>{autoComplete()}</div>
+      <div>{autoCompleted()}</div>
     </div>
   );
 }

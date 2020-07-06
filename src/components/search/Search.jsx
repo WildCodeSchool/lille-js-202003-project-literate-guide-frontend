@@ -62,7 +62,7 @@ class Search extends Component {
         <div>
           <SearchIcon />
         </div>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <InputBase
             style={{ width: '300px' }}
             type="text"
