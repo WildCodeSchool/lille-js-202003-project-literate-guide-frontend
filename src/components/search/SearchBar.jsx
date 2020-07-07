@@ -54,20 +54,17 @@ function SearchBar() {
                 autoComplete="off"
                 value={location.address}
                 placeholder="Recherche une adresse"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
                 inputProps={{ 'aria-label': 'search' }}
-                multiline={true}
+                multiline
+                ref={InputBase}
               />
             </form>
 
             <div>
               {location.autocomplete &&
-                location.autocomplete.map((address, i) => {
+                location.autocomplete.map((address) => {
                   return (
-                    <Grid container alignItems="center" key={i}>
+                    <Grid container alignItems="center" key={address}>
                       <Grid item>
                         <LocationOnIcon className={classes.icon} />
                       </Grid>
