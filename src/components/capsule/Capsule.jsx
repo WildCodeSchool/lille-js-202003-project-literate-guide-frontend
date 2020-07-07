@@ -17,7 +17,8 @@ const CapsuleStyles = makeStyles((theme) => ({
     marginLeft: 10,
   },
   outcard: {
-    maxWidth: 300,
+    width: 300,
+    height: 280,
     marginTop: 8,
     marginBottom: 8,
     borderRadius: 10,
@@ -40,6 +41,7 @@ const CapsuleStyles = makeStyles((theme) => ({
     marginBottom: 10,
     width: 250,
     fontSize: 13,
+    border: '1px solid black',
   },
   content: {
     display: 'flex',
@@ -49,11 +51,6 @@ const CapsuleStyles = makeStyles((theme) => ({
   },
   duree: {
     color: '#F15348',
-  },
-  hr: {
-    width: '90%',
-    marginTop: 20,
-    border: '0.5px solid #F15348',
   },
 }));
 
@@ -115,7 +112,6 @@ const Capsule = ({ capsule }) => {
           </div>
         </Card>
       </div>
-      <hr className={classes.hr} />
     </>
   );
 };
