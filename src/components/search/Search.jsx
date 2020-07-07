@@ -45,7 +45,7 @@ class Search extends Component {
           return (
             <p key={i}>
               <span
-                onClick={() => this.completeInput(address.properties.label)}
+                onSelect={() => this.completeInput(address.properties.label)}
               >
                 {address.properties.label}
               </span>
