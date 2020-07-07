@@ -12,23 +12,26 @@ import AddParcours from './components/addparcours/AddParcours';
 import AddCapsule from './components/addcapsule/AddCapsule';
 import theme from './Theme';
 import CapsuleList from './components/capsulelist/CapsuleList';
+import { LocationProvider } from './contexts/LocationContext';
 
 function App() {
   return (
     <div>
       <Router>
         <MuiThemeProvider theme={theme}>
-          <NavBar />
-          <Switch>
-            <Route exact path="/" component={Explore} />
-            <Route path="/Parcours" component={Parcours} />
-            <Route path="/Favoris" component={Favoris} />
-            <Route path="/Profil" component={Profil} />
-            <Route path="/capsules" component={CapsuleList} />
-            <Route path="/AddCapsule" component={AddCapsule} />
-            <Route path="/AddParcours" component={AddParcours} />
-          </Switch>
-          <BottomBar />
+          <LocationProvider>
+            <NavBar />
+            <Switch>
+              <Route exact path="/" component={Explore} />
+              <Route path="/Parcours" component={Parcours} />
+              <Route path="/Favoris" component={Favoris} />
+              <Route path="/Profil" component={Profil} />
+              <Route path="/capsules" component={CapsuleList} />
+              <Route path="/AddCapsule" component={AddCapsule} />
+              <Route path="/AddParcours" component={AddParcours} />
+            </Switch>
+            <BottomBar />
+          </LocationProvider>
         </MuiThemeProvider>
       </Router>
     </div>
