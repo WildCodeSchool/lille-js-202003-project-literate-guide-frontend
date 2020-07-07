@@ -4,18 +4,25 @@ import axios from 'axios';
 import { Fab } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+// import Typography from '@material-ui/core/Typography';
 import Capsule from '../capsule/Capsule';
 
 const ListButtonStyles = makeStyles((theme) => ({
   root: {
     zIndex: 20,
-    position: 'absolute',
+    position: 'fixed',
     bottom: theme.spacing(11),
     right: theme.spacing(2),
   },
   table: {
     display: 'flex',
     flexDirection: 'column',
+    marginBottom: 70,
+  },
+  poiTitle: {
+    color: '#F15348',
+    fontWeight: 'bold',
+    fontSize: 18,
   },
 }));
 
@@ -40,6 +47,7 @@ const CapsuleList = () => {
 
   return (
     <>
+      {/* <Typography className={classes.poiTitle}>{capsule.poi_name}</Typography> */}
       {capsules && (
         <div className={classes.table}>
           {capsules.map((capsule, index) => (

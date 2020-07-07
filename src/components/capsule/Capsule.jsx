@@ -1,8 +1,8 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
-import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import ReactPlayer from 'react-player';
 
 const CapsuleStyles = makeStyles((theme) => ({
@@ -21,11 +21,6 @@ const CapsuleStyles = makeStyles((theme) => ({
     marginTop: 8,
     marginBottom: 8,
     borderRadius: 10,
-  },
-  poiTitle: {
-    color: '#F15348',
-    fontWeight: 'bold',
-    fontSize: 20,
   },
   video: {
     borderRadius: 20,
@@ -58,6 +53,7 @@ const CapsuleStyles = makeStyles((theme) => ({
   hr: {
     width: '90%',
     marginTop: 20,
+    border: '0.5px solid #F15348',
   },
 }));
 
@@ -67,7 +63,6 @@ const Capsule = ({ capsule }) => {
   return (
     <>
       <div className={classes.container}>
-        <Typography className={classes.poiTitle}>{capsule.poi_name}</Typography>
         <Card className={classes.outcard}>
           <ReactPlayer
             className={classes.video}
