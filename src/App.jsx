@@ -4,14 +4,23 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import BottomBar from './components/bottombar/BottomBar';
 import Explore from './components/explore/Explore';
 import Favoris from './components/favoris/Favoris';
-import Maptest from './components/map/Maptest';
+import LeafletMap from './components/maptest/LeafletMap';
 import Parcours from './components/parcours/Parcours';
 import Profil from './components/profil/Profil';
 import NavBar from './components/navbar/Navbar';
 import './App.scss';
 import 'leaflet/dist/leaflet.css';
+import Axios from 'axios';
 
 
+const getLocalisation = () => {
+
+  Axios
+    .get("http://localhost:4242/poi"
+    ).then((reponse) => response.data)
+
+
+}
 
 const theme = createMuiTheme({
   palette: {
@@ -42,7 +51,7 @@ function App() {
       <Router>
         <MuiThemeProvider theme={theme}>
           <NavBar />
-          <Maptest />
+          <LeafletMap />
           <Switch>
             <Route exact path="/" component={Explore} />
             <Route path="/Parcours" component={Parcours} />

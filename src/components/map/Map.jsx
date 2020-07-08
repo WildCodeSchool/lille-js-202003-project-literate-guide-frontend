@@ -104,7 +104,6 @@ class Leaflet extends Component {
         </Marker>
         <Marker position={positionGreenIcon} icon={this.greenIcon}>
           <Popup>
-
             Le Zenith
           </Popup>
         </Marker>

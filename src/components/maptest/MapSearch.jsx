@@ -5,7 +5,7 @@ import axios from "axios";
 import "./Map.scss";
 import { Marker } from "leaflet";
 
-class Maptest extends Component {
+class MapSearch extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -128,4 +128,4 @@ class Maptest extends Component {
         );
     }
 }
-export default Maptest;
+export default MapSearch;
