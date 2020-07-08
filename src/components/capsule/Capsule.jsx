@@ -39,12 +39,14 @@ const CapsuleStyles = makeStyles((theme) => ({
   },
   name: {
     fontWeight: 'bold',
+    overflow: 'hidden',
+    paddingRight: '10px',
   },
   duree: {
     display: 'flex',
     justifyContent: 'flex-end',
     color: '#F15348',
-    width: '20%',
+    fontSize: 13,
   },
   outchip: {
     display: 'flex',
@@ -75,7 +77,11 @@ const Capsule = ({ capsule }) => {
                 <Box lineHeight={1.2}>{capsule.capsule_name}</Box>
               </Typography>
               <Typography className={classes.duree}>
-                {capsule.duration_video}
+                {capsule.duration_video <= 60
+                  ? `${capsule.duration_video} sec`
+                  : `${Math.floor(capsule.duration_video / 60)}m${
+                      capsule.duration_video % 60
+                    }s`}
               </Typography>
             </div>
             <div className={classes.outchip}>
