@@ -10,17 +10,8 @@ import Profil from './components/profil/Profil';
 import NavBar from './components/navbar/Navbar';
 import './App.scss';
 import 'leaflet/dist/leaflet.css';
-import Axios from 'axios';
 
 
-const getLocalisation = () => {
-
-  Axios
-    .get("http://localhost:4242/poi"
-    ).then((reponse) => response.data)
-
-
-}
 
 const theme = createMuiTheme({
   palette: {
