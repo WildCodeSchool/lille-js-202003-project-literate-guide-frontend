@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import MapIcon from '@material-ui/icons/Map';
 import axios from 'axios';
+import Typography from '@material-ui/core/Typography';
 import { Fab } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Capsule from '../capsule/Capsule';
 
 const ListButtonStyles = makeStyles((theme) => ({
@@ -14,30 +14,36 @@ const ListButtonStyles = makeStyles((theme) => ({
     bottom: theme.spacing(11),
     right: theme.spacing(2),
   },
-  table: {
+  listContainer: {
     display: 'flex',
     flexDirection: 'column',
-    marginBottom: 70,
+    paddingBottom: 70,
+    paddingLeft: 20,
+    paddingTop: 20,
+    paddingRight: 20,
   },
-  poiTitle: {
+  poiName: {
     color: '#F15348',
     fontWeight: 'bold',
     fontSize: 18,
   },
   capsuleContainer: {
     display: 'flex',
+    overflow: 'scroll',
   },
-  // hr: {
-  //   width: '90%',
-  //   marginTop: 20,
-  //   border: '0.5px solid #F15348',
-  // },
+  horizontalLine: {
+    display: 'flex',
+    border: '0.8px solid #FFD3C8',
+    width: '100%',
+    marginTop: 5,
+    marginBottom: 15,
+  },
 }));
 
 const CapsuleList = () => {
   const classes = ListButtonStyles();
   const [capsules, setCapsules] = useState([]);
-  const [poi, setPoi] = useState([]);
+  const [interestPoints, setInterestPoints] = useState([]);
 
   const getCapsules = () => {
     axios
@@ -50,11 +56,11 @@ const CapsuleList = () => {
       });
   };
 
-  const getPoi = () => {
+  const getInterestPoints = () => {
     axios
       .get('http://localhost:8000/poi')
       .then((res) => {
-        setPoi(res.data);
+        setInterestPoints(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -63,42 +69,34 @@ const CapsuleList = () => {
 
   useEffect(() => {
     getCapsules();
-    getPoi();
+    getInterestPoints();
   }, []);
-
-  /* <Typography className={classes.poiTitle}>{capsule.poi_name}</Typography> */
-  /* {capsules && (
-        <div className={classes.table}>
-          {capsules.map((capsule, index) => (
-            <Capsule key={index} capsule={capsule} />
-          ))}
-        </div> */
 
   return (
     <>
-      {poi && (
-        <div className={classes.table}>
-          {poi.map((poi, index) => (
-            <div>
-              <Typography key={index} className={classes.poiTitle}>
+      {interestPoints && (
+        <div className={classes.listContainer}>
+          {interestPoints.map((poi) => (
+            <div className={classes.poiContainer}>
+              <Typography key={poi.id} className={classes.poiName}>
                 {poi.poi_name}
               </Typography>
               {capsules && (
                 <div className={classes.capsuleContainer}>
                   {capsules
-                    .filter((capsule, index) => {
+                    .filter((capsule) => {
                       return poi.poi_name === capsule.poi_name;
                     })
-                    .map((capsule, index) => (
-                      <Capsule key={index} capsule={capsule} />
+                    .map((capsule) => (
+                      <Capsule key={capsule.id} capsule={capsule} />
                     ))}
                 </div>
               )}
+              <span className={classes.horizontalLine} />
             </div>
           ))}
         </div>
       )}
-
       <Fab
         component={Link}
         to="/"
