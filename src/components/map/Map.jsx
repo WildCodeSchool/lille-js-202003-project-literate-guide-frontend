@@ -1,10 +1,29 @@
-import React, { useContext } from 'react';
-import { Map, TileLayer, CircleMarker } from 'react-leaflet';
+import React, { useEffect, useState, useContext } from 'react';
+import axios from 'axios';
+import { Map, TileLayer, CircleMarker, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { LocationContext } from '../../contexts/LocationContext';
 
 const Leaflet = () => {
   const value = useContext(LocationContext);
+  const [poi, setPoi] = useState();
+
+  const getPoi = () => {
+    axios
+      .get('http://localhost:4242/poi')
+      .then((res) => {
+        setPoi(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getPoi();
+  }, []);
+
   return (
     <>
       <Map center={value} zoom={16} style={{ height: '85vh', zIndex: 0 }}>
@@ -20,6 +39,14 @@ const Leaflet = () => {
           fillOpacity="1"
           weight="2"
         />
+        {poi.map((pois) => {
+          return (
+            <Marker
+              key={pois.poi_name}
+              position={[pois.latitude[0], pois.longitude[1]]}
+            />
+          );
+        })}
       </Map>
     </>
   );

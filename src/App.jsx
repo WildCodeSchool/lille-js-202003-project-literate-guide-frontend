@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import BottomBar from './components/bottombar/BottomBar';
@@ -16,25 +15,6 @@ import CapsuleList from './components/capsulelist/CapsuleList';
 import { LocationProvider } from './contexts/LocationContext';
 
 function App() {
-  const url = 'http://localhost:4242/poi';
-  const [poi, setPoi] = useState();
-
-  useEffect(() => {
-    setPoi();
-  }, []);
-
-  const getPoi = () => {
-    axios
-      .get(url)
-      .then((res) => {
-        console.log(res.data);
-        setPoi(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   return (
     <div>
       <Router>
