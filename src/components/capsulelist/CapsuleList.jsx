@@ -9,6 +9,7 @@ import Chip from '@material-ui/core/Chip';
 import ReactPlayer from 'react-player';
 import { makeStyles } from '@material-ui/core/styles';
 import Rating from '../rating/Rating';
+import { backend } from '../../conf';
 
 const ListButtonStyles = makeStyles((theme) => ({
   root: {
@@ -65,7 +66,7 @@ const CapsuleList = () => {
 
   const getCapsules = () => {
     axios
-      .get('http://localhost:4242/capsules')
+      .get(`${backend}/capsules`)
       .then((res) => {
         setCapsules(res.data);
       })
