@@ -6,6 +6,7 @@ import { Fab } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Capsule from '../capsule/Capsule';
+import { backend } from '../../conf';
 
 const ListButtonStyles = makeStyles((theme) => ({
   root: {
@@ -47,7 +48,7 @@ const CapsuleList = () => {
 
   const getCapsules = () => {
     axios
-      .get('http://localhost:8000/capsules')
+      .get(`${backend}/capsules`)
       .then((res) => {
         setCapsules(res.data);
       })
