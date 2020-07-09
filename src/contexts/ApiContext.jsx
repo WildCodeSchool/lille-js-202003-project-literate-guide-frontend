@@ -32,7 +32,7 @@ export const ApiProvider = (props) => {
 
   const getCapsules = () => {
     axios
-      .get('http://localhost:4242/capsules')
+      .get(`${backend}/capsules`)
       .then((res) => {
         setCapsules(res.data);
       })
