@@ -1,29 +1,22 @@
-import React, { useEffect, useState, useContext } from 'react';
-import axios from 'axios';
+import React, { useContext } from 'react';
 import { Map, TileLayer, CircleMarker, Marker } from 'react-leaflet';
-import { backend } from '../../conf';
+import { Icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { LocationContext } from '../../contexts/LocationContext';
+import { ApiContext } from '../../contexts/ApiContext';
+
+const IconStyle = new Icon({
+  iconUrl: '/images/pin.png',
+  iconSize: [34, 34],
+});
 
 const Leaflet = () => {
   const value = useContext(LocationContext);
-  const [poi, setPoi] = useState([]);
+  const { poi } = useContext(ApiContext);
 
-  const getPoi = () => {
-    axios
-      .get(`${backend}/poi`)
-      .then((res) => {
-        setPoi(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  const allPoi = [...poi];
 
-  useEffect(() => {
-    getPoi();
-  }, []);
-
+  console.log(IconStyle);
   return (
     <>
       <Map center={value} zoom={16} style={{ height: '85vh', zIndex: 0 }}>
@@ -38,13 +31,15 @@ const Leaflet = () => {
           fillColor="#F15348"
           fillOpacity="1"
           weight="2"
+          icon={IconStyle}
         />
-        {poi[0] &&
-          poi.map((pois) => {
+        {allPoi[0] &&
+          allPoi.map((pois) => {
             return (
               <Marker
                 key={pois.poi_name}
                 position={[pois.latitude, pois.longitude]}
+                icon={IconStyle}
               />
             );
           })}
