@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import MapIcon from '@material-ui/icons/Map';
-import axios from 'axios';
 import Typography from '@material-ui/core/Typography';
 import { Fab } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Capsule from '../capsule/Capsule';
-import { backend } from '../../conf';
+import { ApiContext } from '../../contexts/ApiContext';
 
 const ListButtonStyles = makeStyles((theme) => ({
   root: {
@@ -43,50 +42,25 @@ const ListButtonStyles = makeStyles((theme) => ({
 
 const CapsuleList = () => {
   const classes = ListButtonStyles();
-  const [capsules, setCapsules] = useState([]);
-  const [interestPoints, setInterestPoints] = useState([]);
+  const { poi, capsules } = useContext(ApiContext);
 
-  const getCapsules = () => {
-    axios
-      .get(`${backend}/capsules`)
-      .then((res) => {
-        setCapsules(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const getInterestPoints = () => {
-    axios
-      .get('http://localhost:8000/poi')
-      .then((res) => {
-        setInterestPoints(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  useEffect(() => {
-    getCapsules();
-    getInterestPoints();
-  }, []);
+  const interestPoints = [...poi];
+  const capsulePoints = [...capsules];
 
   return (
     <>
       {interestPoints && (
         <div className={classes.listContainer}>
-          {interestPoints.map((poi) => (
+          {interestPoints.map((pois) => (
             <div className={classes.poiContainer}>
-              <Typography key={poi.id} className={classes.poiName}>
-                {poi.poi_name}
+              <Typography key={pois.id} className={classes.poiName}>
+                {pois.poi_name}
               </Typography>
-              {capsules && (
+              {capsulePoints && (
                 <div className={classes.capsuleContainer}>
-                  {capsules
+                  {capsulePoints
                     .filter((capsule) => {
-                      return poi.poi_name === capsule.poi_name;
+                      return pois.poi_name === capsule.poi_name;
                     })
                     .map((capsule) => (
                       <Capsule key={capsule.id} capsule={capsule} />
