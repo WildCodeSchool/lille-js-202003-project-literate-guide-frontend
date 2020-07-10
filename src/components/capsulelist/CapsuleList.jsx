@@ -1,71 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import MapIcon from '@material-ui/icons/Map';
 import axios from 'axios';
+import Typography from '@material-ui/core/Typography';
 import { Fab } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import Card from '@material-ui/core/Card';
-import Typography from '@material-ui/core/Typography';
-import Chip from '@material-ui/core/Chip';
-import ReactPlayer from 'react-player';
 import { makeStyles } from '@material-ui/core/styles';
-import Rating from '../rating/Rating';
+import Capsule from '../capsule/Capsule';
+import { backend } from '../../conf';
 
 const ListButtonStyles = makeStyles((theme) => ({
   root: {
     zIndex: 20,
-    position: 'absolute',
+    position: 'fixed',
     bottom: theme.spacing(11),
     right: theme.spacing(2),
   },
-  outcard: {
-    marginTop: 20,
-    marginLeft: 20,
-    maxWidth: 350,
+  listContainer: {
     display: 'flex',
     flexDirection: 'column',
-    marginBottom: 15,
+    paddingBottom: 70,
+    paddingLeft: 20,
+    paddingTop: 20,
+    paddingRight: 20,
   },
-  title: {
+  poiName: {
     color: '#F15348',
     fontWeight: 'bold',
-    marginBottom: 10,
+    fontSize: 18,
+  },
+  capsuleContainer: {
+    display: 'flex',
+    overflow: 'scroll',
+  },
+  horizontalLine: {
+    display: 'flex',
+    border: '0.8px solid #FFD3C8',
+    width: '100%',
     marginTop: 5,
-    marginLeft: 10,
-  },
-  video: {
-    marginBottom: 7,
-    marginLeft: 5,
-    marginRight: 5,
-  },
-  outchip: {
-    display: 'flex',
-    marginBottom: 7,
-  },
-  chip: {
-    margin: '3px',
-  },
-  description: {
-    fontWeight: 'bold',
-    marginBottom: 10,
-    width: 250,
-  },
-  descriDuree: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    flexDirection: 'row',
-  },
-  duree: {
-    color: '#F15348',
+    marginBottom: 15,
   },
 }));
 
 const CapsuleList = () => {
   const classes = ListButtonStyles();
   const [capsules, setCapsules] = useState([]);
+  const [interestPoints, setInterestPoints] = useState([]);
 
   const getCapsules = () => {
     axios
-      .get('http://localhost:4242/capsules')
+      .get(`${backend}/capsules`)
       .then((res) => {
         setCapsules(res.data);
       })
@@ -74,82 +57,56 @@ const CapsuleList = () => {
       });
   };
 
+  const getInterestPoints = () => {
+    axios
+      .get('http://localhost:8000/poi')
+      .then((res) => {
+        setInterestPoints(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     getCapsules();
+    getInterestPoints();
   }, []);
 
   return (
     <>
-      {capsules[0] && (
-        <div>
-          <Card className={classes.outcard}>
-            <Typography className={classes.title}>
-              {capsules[0].capsule_name}
-            </Typography>
-            <Rating />
-            <ReactPlayer
-              className={classes.video}
-              url={capsules[0].url_video}
-              width="290"
-              height="100"
-            />
-            <div className={classes.descriDuree}>
-              <Typography className={classes.description}>
-                {capsules[0].description}
+      {interestPoints && (
+        <div className={classes.listContainer}>
+          {interestPoints.map((poi) => (
+            <div className={classes.poiContainer}>
+              <Typography key={poi.id} className={classes.poiName}>
+                {poi.poi_name}
               </Typography>
-              <Typography className={classes.duree}>
-                {capsules[0].duration_video} sec
-              </Typography>
+              {capsules && (
+                <div className={classes.capsuleContainer}>
+                  {capsules
+                    .filter((capsule) => {
+                      return poi.poi_name === capsule.poi_name;
+                    })
+                    .map((capsule) => (
+                      <Capsule key={capsule.id} capsule={capsule} />
+                    ))}
+                </div>
+              )}
+              <span className={classes.horizontalLine} />
             </div>
-            <div className={classes.outchip}>
-              <Chip
-                className={classes.chip}
-                label="Quartier"
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
-              <Chip
-                className={classes.chip}
-                label="Place"
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
-              <Chip
-                className={classes.chip}
-                label="Rue"
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
-              <Chip
-                className={classes.chip}
-                label="Monument"
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
-              <Chip
-                className={classes.chip}
-                label="Musée"
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
-            </div>
-          </Card>
-          <Fab
-            component={Link}
-            to="/"
-            color="secondary"
-            className={classes.root}
-            aria-label="change"
-          >
-            <MapIcon color="primary" />
-          </Fab>
+          ))}
         </div>
       )}
+      <Fab
+        component={Link}
+        to="/"
+        color="secondary"
+        className={classes.root}
+        aria-label="change"
+      >
+        <MapIcon color="primary" />
+      </Fab>
     </>
   );
 };
