@@ -59,7 +59,7 @@ const CapsuleList = () => {
 
   const getInterestPoints = () => {
     axios
-      .get('http://localhost:8000/poi')
+      .get(`${backend}/poi`)
       .then((res) => {
         setInterestPoints(res.data);
       })
