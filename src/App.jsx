@@ -13,6 +13,7 @@ import AddCapsule from './components/addcapsule/AddCapsule';
 import theme from './Theme';
 import CapsuleList from './components/capsulelist/CapsuleList';
 import { LocationProvider } from './contexts/LocationContext';
+import { ApiProvider } from './contexts/ApiContext';
 
 function App() {
   return (
@@ -20,17 +21,19 @@ function App() {
       <Router>
         <MuiThemeProvider theme={theme}>
           <LocationProvider>
-            <NavBar />
-            <Switch>
-              <Route exact path="/" component={Explore} />
-              <Route path="/Parcours" component={Parcours} />
-              <Route path="/Favoris" component={Favoris} />
-              <Route path="/Profil" component={Profil} />
-              <Route path="/capsules" component={CapsuleList} />
-              <Route path="/AddCapsule" component={AddCapsule} />
-              <Route path="/AddParcours" component={AddParcours} />
-            </Switch>
-            <BottomBar />
+            <ApiProvider>
+              <NavBar />
+              <Switch>
+                <Route exact path="/" component={Explore} />
+                <Route path="/Parcours" component={Parcours} />
+                <Route path="/Favoris" component={Favoris} />
+                <Route path="/Profil" component={Profil} />
+                <Route path="/capsules" component={CapsuleList} />
+                <Route path="/AddCapsule" component={AddCapsule} />
+                <Route path="/AddParcours" component={AddParcours} />
+              </Switch>
+              <BottomBar />
+            </ApiProvider>
           </LocationProvider>
         </MuiThemeProvider>
       </Router>

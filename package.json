@@ -13,6 +13,7 @@
     "dotenv": "^8.2.0",
     "google-maps-react": "^2.0.6",
     "leaflet": "^1.6.0",
+    "lodash": "^4.17.19",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

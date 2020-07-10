@@ -1,10 +1,20 @@
 import React, { useContext } from 'react';
-import { Map, TileLayer, CircleMarker } from 'react-leaflet';
+import { Map, TileLayer, CircleMarker, Marker } from 'react-leaflet';
+import { Icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { LocationContext } from '../../contexts/LocationContext';
+import { ApiContext } from '../../contexts/ApiContext';
+
+const IconStyle = new Icon({
+  iconUrl: '/images/pin.png',
+  iconSize: [34, 34],
+});
 
 const Leaflet = () => {
   const value = useContext(LocationContext);
+  const { poi } = useContext(ApiContext);
+
+  const allPoi = [...poi];
   return (
     <>
       <Map center={value} zoom={16} style={{ height: '85vh', zIndex: 0 }}>
@@ -19,7 +29,18 @@ const Leaflet = () => {
           fillColor="#F15348"
           fillOpacity="1"
           weight="2"
+          icon={IconStyle}
         />
+        {allPoi[0] &&
+          allPoi.map((pois) => {
+            return (
+              <Marker
+                key={pois.poi_name}
+                position={[pois.latitude, pois.longitude]}
+                icon={IconStyle}
+              />
+            );
+          })}
       </Map>
     </>
   );
