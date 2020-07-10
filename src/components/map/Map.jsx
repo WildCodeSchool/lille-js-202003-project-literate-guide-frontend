@@ -15,8 +15,6 @@ const Leaflet = () => {
   const { poi } = useContext(ApiContext);
 
   const allPoi = [...poi];
-
-  console.log(IconStyle);
   return (
     <>
       <Map center={value} zoom={16} style={{ height: '85vh', zIndex: 0 }}>
