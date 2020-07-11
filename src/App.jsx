@@ -4,7 +4,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 import BottomBar from './components/bottombar/BottomBar';
 import Explore from './components/explore/Explore';
 import Favoris from './components/favoris/Favoris';
-import ParcoursList from './components/parcours/ParcoursList';
+import ParcoursList from './components/parcourslist/ParcoursList';
 import Profil from './components/profil/Profil';
 import NavBar from './components/navbar/Navbar';
 import 'leaflet/dist/leaflet.css';
