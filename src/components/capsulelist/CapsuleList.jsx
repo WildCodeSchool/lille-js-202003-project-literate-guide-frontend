@@ -30,7 +30,7 @@ const ListButtonStyles = makeStyles((theme) => ({
   },
   capsuleContainer: {
     display: 'flex',
-    overflow: 'scroll',
+    overflow: 'auto',
   },
   horizontalLine: {
     display: 'flex',
@@ -38,6 +38,11 @@ const ListButtonStyles = makeStyles((theme) => ({
     width: '100%',
     marginTop: 5,
     marginBottom: 15,
+  },
+  '@global': {
+    '*::-webkit-scrollbar': {
+      display: 'none',
+    },
   },
 }));
 

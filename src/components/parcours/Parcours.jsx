@@ -1,12 +1,7 @@
 import React from 'react';
-import Leaflet from '../map/Map';
 
-function Parcours() {
-  return (
-    <div>
-      <Leaflet />
-    </div>
-  );
-}
+const Parcours = () => {
+  return <div>test</div>;
+};
 
 export default Parcours;
