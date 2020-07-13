@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/core/styles';
@@ -73,10 +74,11 @@ const Capsule = ({ capsule }) => {
           />
           <div className={classes.contentContainer}>
             <div className={classes.content}>
-              <Typography className={classes.name}>
-                <Box lineHeight={1.2}>{capsule.capsule_name}</Box>
-              </Typography>
-
+              <Link to={`/capsuleInfo/${capsule.id}`}>
+                <Typography className={classes.name}>
+                  <Box lineHeight={1.2}>{capsule.capsule_name}</Box>
+                </Typography>
+              </Link>
               <Typography className={classes.duree}>
                 {capsule.duration_video <= 60
                   ? `${capsule.duration_video} sec`

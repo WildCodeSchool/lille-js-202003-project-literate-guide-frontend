@@ -32,7 +32,7 @@ function App() {
                 <Route path="/capsules" component={CapsuleList} />
                 <Route path="/AddCapsule" component={AddCapsule} />
                 <Route path="/AddParcours" component={AddParcours} />
-                <Route path="/CapsuleInfo" component={CapsuleFull} />
+                <Route path="/CapsuleInfo/:id" component={CapsuleFull} />
               </Switch>
               <BottomBar />
             </ApiProvider>
