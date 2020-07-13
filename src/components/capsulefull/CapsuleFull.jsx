@@ -19,6 +19,43 @@ const Styles = makeStyles((theme) => ({
   head: {
     display: 'flex',
     justifyContent: 'space-between',
+    marginTop: 15,
+    alignItems: 'center',
+  },
+  avatar: {
+    marginLeft: 10,
+  },
+  video: {
+    marginTop: 10,
+  },
+  outchip: {
+    marginTop: 10,
+    marginLeft: 10,
+    marginBottom: 10,
+  },
+  chip: {
+    margin: 3,
+  },
+  duree: {
+    marginRight: 20,
+  },
+  name: {
+    fontWeight: 'bold',
+    marginLeft: 10,
+  },
+  description: {
+    marginLeft: 10,
+    marginTop: 10,
+    marginBottom: 10,
+    marginRight: 10,
+  },
+  horizontalLine: {
+    display: 'flex',
+    border: '0.8px solid #FFD3C8',
+    width: '100%',
+
+    marginTop: 5,
+    marginBottom: 15,
   },
 }));
 
@@ -39,7 +76,11 @@ const CapsuleFull = () => {
           .map((caps) => (
             <div>
               <div className={classes.head}>
-                <Avatar alt="Profile Picture" src="" />
+                <Avatar
+                  className={classes.avatar}
+                  alt="Profile Picture"
+                  src=""
+                />
                 <Typography className={classes.duree}>
                   {caps.duration_video <= 60
                     ? `${caps.duration_video} sec`
@@ -48,13 +89,15 @@ const CapsuleFull = () => {
                       }s`}
                 </Typography>
               </div>
-              <ReactPlayer
-                className={classes.video}
-                url={caps.url_video}
-                width="100"
-                height="100"
-              />
-              <div>
+              <div className={classes.video}>
+                <ReactPlayer
+                  className={classes.video}
+                  url={caps.url_video}
+                  width="100"
+                  height="100"
+                />
+              </div>
+              <div className={classes.outchip}>
                 <Chip
                   className={classes.chip}
                   label="Quartier"
@@ -78,11 +121,14 @@ const CapsuleFull = () => {
                 />
               </div>
               <div>
-                <Typography>{caps.capsule_name}</Typography>
+                <Typography className={classes.name}>
+                  {caps.capsule_name}
+                </Typography>
               </div>
-              <div>
+              <div className={classes.description}>
                 <Typography>{caps.description}</Typography>
               </div>
+              <span className={classes.horizontalLine} />
               <Typography>Commentaires des yoovizers</Typography>
               <Rating />
             </div>
