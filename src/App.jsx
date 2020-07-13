@@ -14,6 +14,7 @@ import theme from './Theme';
 import CapsuleList from './components/capsulelist/CapsuleList';
 import { LocationProvider } from './contexts/LocationContext';
 import { ApiProvider } from './contexts/ApiContext';
+import CapsuleFull from './components/capsulefull/CapsuleFull';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/capsules" component={CapsuleList} />
                 <Route path="/AddCapsule" component={AddCapsule} />
                 <Route path="/AddParcours" component={AddParcours} />
+                <Route path="/CapsuleInfo" component={CapsuleFull} />
               </Switch>
               <BottomBar />
             </ApiProvider>

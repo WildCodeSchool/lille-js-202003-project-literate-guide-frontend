@@ -14,6 +14,11 @@ const ListButtonStyles = makeStyles((theme) => ({
     bottom: theme.spacing(11),
     right: theme.spacing(2),
   },
+  '@global': {
+    '*::-webkit-scrollbar': {
+      display: 'none',
+    },
+  },
   listContainer: {
     display: 'flex',
     flexDirection: 'column',
@@ -29,7 +34,7 @@ const ListButtonStyles = makeStyles((theme) => ({
   },
   capsuleContainer: {
     display: 'flex',
-    overflow: 'scroll',
+    overflowX: 'auto',
   },
   horizontalLine: {
     display: 'flex',

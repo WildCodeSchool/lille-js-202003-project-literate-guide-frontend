@@ -76,6 +76,7 @@ const Capsule = ({ capsule }) => {
               <Typography className={classes.name}>
                 <Box lineHeight={1.2}>{capsule.capsule_name}</Box>
               </Typography>
+
               <Typography className={classes.duree}>
                 {capsule.duration_video <= 60
                   ? `${capsule.duration_video} sec`
