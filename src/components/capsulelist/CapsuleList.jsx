@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Capsule from '../capsule/Capsule';
 import { ApiContext } from '../../contexts/ApiContext';
+import { useState } from 'react';
 
 const ListButtonStyles = makeStyles((theme) => ({
   root: {
@@ -43,9 +44,15 @@ const ListButtonStyles = makeStyles((theme) => ({
 const CapsuleList = () => {
   const classes = ListButtonStyles();
   const { poi, capsules } = useContext(ApiContext);
+  const [near, getNear] = useState([]);
 
   const interestPoints = [...poi];
   const capsulePoints = [...capsules];
+
+  const sortNearPoint = () => {
+    const nearPoint = distanceto([[...poi].latitude, [[...poi].longitude]]);
+    setNear(nearPoint);
+  };
 
   return (
     <>
