@@ -1,10 +1,9 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import { Marker } from 'react-leaflet';
 import { Icon } from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-import Typography from '@material-ui/core/Typography';
 import Dialog from '@material-ui/core/Dialog';
-// import DialogContent from '@material-ui/core/DialogContent';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import Capsule from '../capsule/Capsule';
 import { ApiContext } from '../../contexts/ApiContext';
 
@@ -53,27 +52,30 @@ const MarkerExplore = () => {
               {capsulesPoint && (
                 <div>
                   {capsulesPoint
-                    .filter((capsule) => {
-                      return pois.id === capsule.id_poi;
+                    .filter((caps) => {
+                      return pois.poi_name === caps.poi_name;
                     })
-                    .map((capsule) => (
+                    .map((cap) => (
                       <Dialog
-                        key={capsule.id}
                         open={open}
                         onClose={handleClose}
                         scroll={scroll}
                         aria-labelledby="scroll-dialog-title"
                         aria-describedby="scroll-dialog-description"
                       >
-                        <Typography key={capsule.id}>
-                          {capsule.capsule_name}
-                        </Typography>
-                        <Capsule key={capsule.id} capsule={capsule} />
+                        <DialogTitle id="scroll-dialog-title" key={cap.id}>
+                          {cap.capsule_name}
+                        </DialogTitle>
+                        <DialogContent
+                          ref={descriptionElementRef}
+                          dividers={scroll === 'paper'}
+                        >
+                          <Capsule key={cap.id} capsule={cap} />
+                        </DialogContent>
                       </Dialog>
                     ))}
                 </div>
               )}
-              ;
             </Marker>
           );
         })}

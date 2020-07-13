@@ -9,7 +9,12 @@ const Leaflet = () => {
 
   return (
     <>
-      <Map center={value} zoom={16} style={{ height: '85vh', zIndex: 0 }}>
+      <Map
+        center={value}
+        zoom={16}
+        style={{ height: '85vh', zIndex: 0 }}
+        closePopupOnClick="true"
+      >
         <TileLayer
           url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
           attribution='&copy; Openstreetmap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
