@@ -6,6 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Capsule from '../capsule/Capsule';
 import { ApiContext } from '../../contexts/ApiContext';
+import { Typography } from '@material-ui/core';
 
 const IconStyle = new Icon({
   iconUrl: '/images/pin.png',
@@ -17,7 +18,8 @@ const MarkerExplore = () => {
   const allPoi = [...poi];
   const capsulesPoint = [...capsules];
   const [open, setOpen] = useState(false);
-  const [scroll, setScroll] = useState('paper');
+  const [scroll, setScroll] = useState('body');
+  const [currentPoi, setPoi] = useState(0);
 
   const handleClickOpen = (scrollType) => () => {
     setOpen(true);
@@ -47,39 +49,46 @@ const MarkerExplore = () => {
               key={pois.id}
               position={[pois.latitude, pois.longitude]}
               icon={IconStyle}
-              onClick={handleClickOpen('paper')}
-            >
-              {capsulesPoint && (
-                <div>
-                  {capsulesPoint
-                    .filter((caps) => {
-                      return pois.poi_name === caps.poi_name;
-                    })
-                    .map((cap) => (
-                      <Dialog
-                        open={open}
-                        onClose={handleClose}
-                        scroll={scroll}
-                        aria-labelledby="scroll-dialog-title"
-                        aria-describedby="scroll-dialog-description"
-                      >
-                        <DialogTitle id="scroll-dialog-title" key={cap.id}>
-                          {cap.capsule_name}
-                        </DialogTitle>
-                        <DialogContent
-                          ref={descriptionElementRef}
-                          dividers={scroll === 'paper'}
-                        >
-                          <Capsule key={cap.id} capsule={cap} />
-                        </DialogContent>
-                      </Dialog>
-                    ))}
-                </div>
-              )}
-            </Marker>
+              onClick={() => {
+                handleClickOpen('body');
+                setPoi(pois.id);
+              }}
+            />
           );
         })}
-      ;
+      {currentPoi !== 0 && (
+        <div>
+          <Dialog
+            open
+            onClose={handleClose}
+            scroll={scroll}
+            aria-labelledby="scroll-dialog-title"
+            aria-describedby="scroll-dialog-description"
+          >
+            {capsulesPoint
+              .filter((caps) => {
+                console.log(currentPoi + 'tot' + caps.poi_id);
+                return currentPoi === caps.poi_id;
+              })
+              .map((cap) => {
+                console.log(cap.capsule_name);
+                return (
+                  <>
+                    <DialogTitle id="scroll-dialog-title" key={cap.id}>
+                      {cap.capsule_name}
+                    </DialogTitle>
+                    <DialogContent
+                      ref={descriptionElementRef}
+                      dividers={scroll === 'paper'}
+                    >
+                      <Capsule key={cap.id} capsule={cap} />
+                    </DialogContent>
+                  </>
+                );
+              })}
+          </Dialog>
+        </div>
+      )}
     </div>
   );
 };
