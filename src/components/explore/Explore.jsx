@@ -12,13 +12,16 @@ const ListButtonStyles = makeStyles((theme) => ({
     bottom: theme.spacing(11),
     right: theme.spacing(2),
   },
+  mapContainer: {
+    height: '85vh',
+  },
 }));
 
 function Explore() {
   const classes = ListButtonStyles();
 
   return (
-    <div>
+    <div className={classes.mapContainer}>
       <Leaflet />
       <Fab
         component={Link}
