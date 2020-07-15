@@ -2,9 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from 'react';
 import * as _ from 'lodash';
 import { Marker } from 'react-leaflet';
 import { Icon } from 'leaflet';
-import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Capsule from '../capsule/Capsule';
@@ -23,9 +21,12 @@ const MarkerExplore = () => {
   const [scroll, setScroll] = useState('body');
   const [currentPoi, setPoi] = useState(0);
 
-  const handleClickOpen = (scrollType) => () => {
-    setOpen(true);
+  const handleScroll = (scrollType) => () => {
     setScroll(scrollType);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
   };
 
   const handleClose = () => {
@@ -42,7 +43,6 @@ const MarkerExplore = () => {
     }
   }, [open]);
 
-  console.log(capsulesPoint);
   const uniqueCapsuleById = _.uniqBy(capsulesPoint, 'capsule_id');
 
   return (
@@ -55,7 +55,8 @@ const MarkerExplore = () => {
               position={[pois.latitude, pois.longitude]}
               icon={IconStyle}
               onClick={() => {
-                handleClickOpen('body');
+                handleOpen();
+                handleScroll('body');
                 setPoi(pois.id);
               }}
             />
@@ -86,9 +87,6 @@ const MarkerExplore = () => {
                     >
                       <Capsule key={cap.id} capsule={cap} />
                     </DialogContent>
-                    <DialogActions>
-                      <Button onClick={handleClose}>Close</Button>
-                    </DialogActions>
                   </>
                 );
               })}
