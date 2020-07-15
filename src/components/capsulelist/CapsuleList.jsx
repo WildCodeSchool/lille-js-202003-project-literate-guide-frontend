@@ -39,11 +39,6 @@ const ListButtonStyles = makeStyles((theme) => ({
     marginTop: 5,
     marginBottom: 15,
   },
-  '@global': {
-    '*::-webkit-scrollbar': {
-      display: 'none',
-    },
-  },
 }));
 
 const CapsuleList = () => {

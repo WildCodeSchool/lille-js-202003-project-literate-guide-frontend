@@ -24,6 +24,11 @@ const CoursesListStyles = makeStyles(() => ({
     overflow: 'auto',
     padding: '0 17px 17px 0',
   },
+  '@global': {
+    '*::-webkit-scrollbar': {
+      display: 'none',
+    },
+  },
 }));
 
 const ParcoursList = () => {
@@ -35,16 +40,6 @@ const ParcoursList = () => {
   console.log(uniqueCourseByID);
   console.log(parcours);
 
-  // const labels = [];
-  // const toto = (id) => {
-  //   if (parcours) {
-  //     const tata = [...parcours].filter((parc) => {
-  //       return id === parc.cou.id;
-  //       });
-  //     return labels = _.uniqBy(tata, 'label');
-  //   }
-  // }
-
   return (
     <div className={classes.parcours}>
       <div className={classes.parcoursMap}>
@@ -55,7 +50,7 @@ const ParcoursList = () => {
           <div className={classes.parcoursCapsule}>
             {uniqueCourseByID.map((parc, index) => (
               // eslint-disable-next-line react/no-array-index-key
-              <Parcours key={index} parcours={parc} />
+              <Parcours key={index} parcours={parc} fullparcours={parcours} />
             ))}
           </div>
         )}

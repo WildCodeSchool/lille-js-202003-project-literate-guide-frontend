@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
 import Chip from '@material-ui/core/Chip';
+import * as _ from 'lodash';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -64,8 +65,10 @@ const ParcoursStyles = makeStyles(() => ({
   },
 }));
 
-const Parcours = ({ parcours }) => {
+const Parcours = ({ parcours, fullparcours }) => {
   const classes = ParcoursStyles();
+
+  const uniqueLabels = _.uniqBy(fullparcours, 'label');
 
   return (
     <>
@@ -79,13 +82,21 @@ const Parcours = ({ parcours }) => {
           />
           <div className={classes.contentContainer}>
             <div className={classes.outchip}>
-              <Chip
-                className={classes.chip}
-                label={parcours.label}
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
+              {uniqueLabels
+                .filter((parc) => {
+                  return parcours.course_id === parc.course_id;
+                })
+                .map((parc) => {
+                  return (
+                    <Chip
+                      className={classes.chip}
+                      label={parc.label}
+                      variant="outlined"
+                      color="primary"
+                      size="small"
+                    />
+                  );
+                })}
             </div>
             <div className={classes.parcoursHeader}>
               <Typography className={classes.name}>
@@ -128,4 +139,5 @@ export default Parcours;
 
 Parcours.propTypes = {
   parcours: PropTypes.string.isRequired,
+  fullparcours: PropTypes.string.isRequired,
 };
