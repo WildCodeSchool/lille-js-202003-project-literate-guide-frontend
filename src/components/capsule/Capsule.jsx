@@ -51,11 +51,13 @@ const CapsuleStyles = makeStyles((theme) => ({
   },
   outchip: {
     display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    // flexWrap: 'wrap',
+    // justifyContent: 'space-between',
+    overflow: 'scroll',
   },
   chip: {
     marginBottom: 5,
+    marginRight: 4,
   },
 }));
 
