@@ -51,8 +51,6 @@ const CapsuleStyles = makeStyles((theme) => ({
   },
   outchip: {
     display: 'flex',
-    // flexWrap: 'wrap',
-    // justifyContent: 'space-between',
     overflow: 'scroll',
   },
   chip: {
