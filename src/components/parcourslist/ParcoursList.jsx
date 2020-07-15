@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useContext } from 'react';
 import * as _ from 'lodash';
 import { makeStyles } from '@material-ui/core/styles';
-import { backend } from '../../conf';
 import Parcours from '../parcours/Parcours';
 import Leaflet from '../map/Map';
+import { ApiContext } from '../../contexts/ApiContext';
 
 const CoursesListStyles = makeStyles(() => ({
   parcours: {
@@ -29,24 +28,22 @@ const CoursesListStyles = makeStyles(() => ({
 
 const ParcoursList = () => {
   const classes = CoursesListStyles();
-  const [parcours, setParcours] = useState([]);
+  const { course } = useContext(ApiContext);
+  const parcours = [...course];
 
-  const getParcours = () => {
-    axios
-      .get(`${backend}/courses`)
-      .then((res) => {
-        setParcours(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  const uniqueCourseByID = _.uniqBy(parcours, 'course_id');
+  console.log(uniqueCourseByID);
+  console.log(parcours);
 
-  useEffect(() => {
-    getParcours();
-  }, []);
-
-  const uniqueCourseByID = _.uniqBy(parcours, 'id');
+  // const labels = [];
+  // const toto = (id) => {
+  //   if (parcours) {
+  //     const tata = [...parcours].filter((parc) => {
+  //       return id === parc.cou.id;
+  //       });
+  //     return labels = _.uniqBy(tata, 'label');
+  //   }
+  // }
 
   return (
     <div className={classes.parcours}>
@@ -56,8 +53,9 @@ const ParcoursList = () => {
       <div className={classes.parcoursInfo}>
         {parcours && (
           <div className={classes.parcoursCapsule}>
-            {uniqueCourseByID.map((course) => (
-              <Parcours key={course.id} parcours={course} />
+            {uniqueCourseByID.map((parc, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <Parcours key={index} parcours={parc} />
             ))}
           </div>
         )}

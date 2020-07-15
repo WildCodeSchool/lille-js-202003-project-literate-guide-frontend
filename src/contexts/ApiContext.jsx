@@ -8,11 +8,14 @@ export const ApiContext = createContext(null);
 export const ApiProvider = (props) => {
   const [poi, setPoi] = useState([]);
   const [capsules, setCapsules] = useState([]);
+  const [course, setCourse] = useState([]);
   const value = {
     poi,
     setPoi,
     capsules,
     setCapsules,
+    course,
+    setCourse,
   };
 
   const getPoi = () => {
@@ -26,10 +29,6 @@ export const ApiProvider = (props) => {
       });
   };
 
-  useEffect(() => {
-    getPoi();
-  }, []);
-
   const getCapsules = () => {
     axios
       .get(`${backend}/capsules`)
@@ -41,8 +40,21 @@ export const ApiProvider = (props) => {
       });
   };
 
+  const getCourse = () => {
+    axios
+      .get(`${backend}/courses`)
+      .then((res) => {
+        setCourse(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     getCapsules();
+    getPoi();
+    getCourse();
   }, []);
 
   const { children } = props;

@@ -86,34 +86,6 @@ const Parcours = ({ parcours }) => {
                 color="primary"
                 size="small"
               />
-              <Chip
-                className={classes.chip}
-                label={parcours.label}
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
-              <Chip
-                className={classes.chip}
-                label={parcours.label}
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
-              <Chip
-                className={classes.chip}
-                label={parcours.label}
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
-              <Chip
-                className={classes.chip}
-                label={parcours.label}
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
             </div>
             <div className={classes.parcoursHeader}>
               <Typography className={classes.name}>
