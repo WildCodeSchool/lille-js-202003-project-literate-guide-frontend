@@ -1,12 +1,14 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
+import * as _ from 'lodash';
 import { Marker } from 'react-leaflet';
 import { Icon } from 'leaflet';
+import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Capsule from '../capsule/Capsule';
 import { ApiContext } from '../../contexts/ApiContext';
-import { Typography } from '@material-ui/core';
 
 const IconStyle = new Icon({
   iconUrl: '/images/pin.png',
@@ -40,6 +42,9 @@ const MarkerExplore = () => {
     }
   }, [open]);
 
+  console.log(capsulesPoint);
+  const uniqueCapsuleById = _.uniqBy(capsulesPoint, 'capsule_id');
+
   return (
     <div>
       {allPoi[0] &&
@@ -59,19 +64,17 @@ const MarkerExplore = () => {
       {currentPoi !== 0 && (
         <div>
           <Dialog
-            open
+            open={open}
             onClose={handleClose}
             scroll={scroll}
             aria-labelledby="scroll-dialog-title"
             aria-describedby="scroll-dialog-description"
           >
-            {capsulesPoint
+            {uniqueCapsuleById
               .filter((caps) => {
-                console.log(currentPoi + 'tot' + caps.poi_id);
                 return currentPoi === caps.poi_id;
               })
               .map((cap) => {
-                console.log(cap.capsule_name);
                 return (
                   <>
                     <DialogTitle id="scroll-dialog-title" key={cap.id}>
@@ -79,10 +82,13 @@ const MarkerExplore = () => {
                     </DialogTitle>
                     <DialogContent
                       ref={descriptionElementRef}
-                      dividers={scroll === 'paper'}
+                      dividers={scroll === 'body'}
                     >
                       <Capsule key={cap.id} capsule={cap} />
                     </DialogContent>
+                    <DialogActions>
+                      <Button onClick={handleClose}>Close</Button>
+                    </DialogActions>
                   </>
                 );
               })}
