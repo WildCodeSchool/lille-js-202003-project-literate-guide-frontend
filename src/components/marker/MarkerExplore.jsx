@@ -2,9 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from 'react';
 import * as _ from 'lodash';
 import { Marker } from 'react-leaflet';
 import { Icon } from 'leaflet';
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import { Dialog, DialogContent, DialogTitle } from '@material-ui/core';
 import Capsule from '../capsule/Capsule';
 import { ApiContext } from '../../contexts/ApiContext';
 
@@ -78,8 +76,8 @@ const MarkerExplore = () => {
               .map((cap) => {
                 return (
                   <>
-                    <DialogTitle id="scroll-dialog-title" key={cap.id}>
-                      {cap.capsule_name}
+                    <DialogTitle id="scroll-dialog-title" key={cap.id_poi}>
+                      {cap.poi_name}
                     </DialogTitle>
                     <DialogContent
                       ref={descriptionElementRef}
