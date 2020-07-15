@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import { Typography } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
+import * as _ from 'lodash';
 import { useParams } from 'react-router-dom';
 import Rating from '../rating/Rating';
 import { ApiContext } from '../../contexts/ApiContext';
@@ -23,15 +24,13 @@ const Styles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   avatar: {
-    marginLeft: 10,
+    marginLeft: 20,
   },
   video: {
     marginTop: 10,
   },
   outchip: {
-    marginTop: 10,
-    marginLeft: 10,
-    marginBottom: 10,
+    margin: '10px 0px 10px 20px',
   },
   chip: {
     margin: 3,
@@ -41,13 +40,10 @@ const Styles = makeStyles((theme) => ({
   },
   name: {
     fontWeight: 'bold',
-    marginLeft: 10,
+    marginLeft: 20,
   },
   description: {
-    marginLeft: 10,
-    marginTop: 10,
-    marginBottom: 10,
-    marginRight: 10,
+    margin: '0px 20px 10px 20px',
   },
   horizontalLine: {
     display: 'flex',
@@ -57,6 +53,18 @@ const Styles = makeStyles((theme) => ({
     marginTop: 5,
     marginBottom: 15,
   },
+  comment: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    marginLeft: 20,
+  },
+  pen: {
+    height: 35,
+    marginRight: 20,
+  },
+  title: {
+    fontWeight: 'bold',
+  },
 }));
 
 const CapsuleFull = () => {
@@ -64,14 +72,14 @@ const CapsuleFull = () => {
   const { capsules } = useContext(ApiContext);
   const { id } = useParams();
 
-  const capsFull = [...capsules];
+  const uniqueCapsuleById = _.uniqBy([...capsules], 'capsule_id');
 
   return (
     <>
       <div>
-        {capsFull
+        {uniqueCapsuleById
           .filter((caps) => {
-            return caps.id === Number(id);
+            return caps.capsule_id === Number(id);
           })
           .map((caps) => (
             <div>
@@ -129,8 +137,19 @@ const CapsuleFull = () => {
                 <Typography>{caps.description}</Typography>
               </div>
               <span className={classes.horizontalLine} />
-              <Typography>Commentaires des yoovizers</Typography>
-              <Rating />
+              <div className={classes.comment}>
+                <div>
+                  <Typography className={classes.title}>
+                    Commentaires des yoovizers
+                  </Typography>
+                  <Rating />
+                </div>
+                <img
+                  src="/images/pen_black.png"
+                  alt="create comment"
+                  className={classes.pen}
+                />
+              </div>
             </div>
           ))}
       </div>

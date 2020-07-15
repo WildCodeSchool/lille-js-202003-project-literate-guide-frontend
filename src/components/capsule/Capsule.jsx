@@ -74,7 +74,7 @@ const Capsule = ({ capsule }) => {
           />
           <div className={classes.contentContainer}>
             <div className={classes.content}>
-              <Link to={`/capsuleInfo/${capsule.id}`}>
+              <Link to={`/capsuleInfo/${capsule.capsule_id}`}>
                 <Typography className={classes.name}>
                   <Box lineHeight={1.2}>{capsule.capsule_name}</Box>
                 </Typography>
