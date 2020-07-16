@@ -24,7 +24,7 @@ const Styles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   avatar: {
-    marginLeft: 20,
+    marginLeft: 15,
   },
   video: {
     marginTop: 10,
