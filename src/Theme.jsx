@@ -5,6 +5,7 @@ const Theme = createMuiTheme({
     MuiButton: {
       text: {
         color: 'white',
+        backgroundColor: '#F15348',
       },
       textPrimary: {
         backgroundColor: '#F15348',
