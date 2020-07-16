@@ -37,8 +37,6 @@ const ParcoursList = () => {
   const parcours = [...course];
 
   const uniqueCourseByID = _.uniqBy(parcours, 'course_id');
-  console.log(uniqueCourseByID);
-  console.log(parcours);
 
   return (
     <div className={classes.parcours}>
@@ -48,9 +46,8 @@ const ParcoursList = () => {
       <div className={classes.parcoursInfo}>
         {parcours && (
           <div className={classes.parcoursCapsule}>
-            {uniqueCourseByID.map((parc, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <Parcours key={index} parcours={parc} fullparcours={parcours} />
+            {uniqueCourseByID.map((parc) => (
+              <Parcours key={parc.id} parcours={parc} fullparcours={parcours} />
             ))}
           </div>
         )}

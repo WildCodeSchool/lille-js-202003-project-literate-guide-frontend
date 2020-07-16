@@ -19,36 +19,21 @@ export const ApiProvider = (props) => {
   };
 
   const getPoi = () => {
-    axios
-      .get(`${backend}/poi`)
-      .then((res) => {
-        setPoi(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    axios.get(`${backend}/poi`).then((res) => {
+      setPoi(res.data);
+    });
   };
 
   const getCapsules = () => {
-    axios
-      .get(`${backend}/capsules`)
-      .then((res) => {
-        setCapsules(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    axios.get(`${backend}/capsules`).then((res) => {
+      setCapsules(res.data);
+    });
   };
 
   const getCourse = () => {
-    axios
-      .get(`${backend}/courses`)
-      .then((res) => {
-        setCourse(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    axios.get(`${backend}/courses`).then((res) => {
+      setCourse(res.data);
+    });
   };
 
   useEffect(() => {
