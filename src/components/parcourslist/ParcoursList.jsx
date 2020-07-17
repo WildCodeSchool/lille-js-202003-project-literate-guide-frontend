@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import * as _ from 'lodash';
 import { makeStyles } from '@material-ui/core/styles';
 import Parcours from '../parcours/Parcours';
-//import Leaflet from '../map/Map';
 import { ApiContext } from '../../contexts/ApiContext';
 import '../../App.scss';
 import './ParcoursList.scss';

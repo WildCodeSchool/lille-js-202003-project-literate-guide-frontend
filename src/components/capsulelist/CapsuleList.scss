@@ -24,3 +24,20 @@
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
+@media (min-width: 480px) {
+  .capsuleContainer {
+    width: 500px;
+  }
+}
+
+@media (min-width: 680px) {
+  .capsuleContainer {
+    width: 700px;
+  }
+}
+
+@media (min-width: 980px) {
+  .capsuleContainer {
+    width: 1000px;
+  }
+}
