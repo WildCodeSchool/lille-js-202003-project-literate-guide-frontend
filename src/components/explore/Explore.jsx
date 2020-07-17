@@ -26,7 +26,9 @@ function Explore() {
   return (
     <div className="content">
       <div className="explore">
-        <Leaflet />
+        <div className="mapWrap">
+          <Leaflet />
+        </div>
         <Fab
           component={Link}
           to="/capsules"

@@ -1,8 +1,53 @@
 .parcours {
   display: grid;
   grid-template-rows: 20% 80%;
-  grid-template-rows: auto;
-  row-gap: 15px;
+  grid-template-columns: auto;
+  row-gap: 1.5px;
   height: 100%;
   width: 100%;
+}
+
+.mapContainer {
+  grid-row: 1/2;
+  height: 20vh;
+}
+
+.parcoursInfo {
+  grid-row: 2/3;
+  display: flex;
+  height: auto;
+  width: 300px;
+  padding: 20px 20px 100px 20px;
+}
+
+.parcoursCapsule {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  padding: 0 17px 17px 0;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 480px) {
+  .parcoursInfo {
+    width: 500px;
+  }
+}
+
+@media (min-width: 680px) {
+  .parcoursInfo {
+    width: 700px;
+  }
+}
+
+@media (min-width: 980px) {
+  .parcoursInfo {
+    width: 1000px;
+  }
+}
+@media (min-width: 1200px) {
+  .parcoursInfo {
+    width: 1300px;
+  }
 }

@@ -14,7 +14,7 @@ const Leaflet = () => {
         id="map"
         center={value}
         zoom={16}
-        style={{ height: '80vh', zIndex: 0 }}
+        style={{ zIndex: 0 }}
         closePopupOnClick="true"
       >
         <TileLayer
