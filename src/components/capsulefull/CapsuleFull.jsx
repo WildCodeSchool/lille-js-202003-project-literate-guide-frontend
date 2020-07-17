@@ -75,85 +75,79 @@ const CapsuleFull = () => {
   const uniqueCapsuleById = _.uniqBy([...capsules], 'capsule_id');
 
   return (
-    <>
-      <div>
-        {uniqueCapsuleById
-          .filter((caps) => {
-            return caps.capsule_id === Number(id);
-          })
-          .map((caps) => (
-            <div>
-              <div className={classes.head}>
-                <Avatar
-                  className={classes.avatar}
-                  alt="Profile Picture"
-                  src=""
-                />
-                <Typography className={classes.duree}>
-                  {caps.duration_video <= 60
-                    ? `${caps.duration_video} sec`
-                    : `${Math.floor(caps.duration_video / 60)}m${
-                        caps.duration_video % 60
-                      }s`}
-                </Typography>
-              </div>
-              <div className={classes.video}>
-                <ReactPlayer
-                  className={classes.video}
-                  url={caps.url_video}
-                  width="100"
-                  height="100"
-                />
-              </div>
-              <div className={classes.outchip}>
-                <Chip
-                  className={classes.chip}
-                  label="Quartier"
-                  variant="outlined"
-                  color="primary"
-                  size="small"
-                />
-                <Chip
-                  className={classes.chip}
-                  label="Place"
-                  variant="outlined"
-                  color="primary"
-                  size="small"
-                />
-                <Chip
-                  className={classes.chip}
-                  label="Rue"
-                  variant="outlined"
-                  color="primary"
-                  size="small"
-                />
-              </div>
-              <div>
-                <Typography className={classes.name}>
-                  {caps.capsule_name}
-                </Typography>
-              </div>
-              <div className={classes.description}>
-                <Typography>{caps.description}</Typography>
-              </div>
-              <span className={classes.horizontalLine} />
-              <div className={classes.comment}>
-                <div>
-                  <Typography className={classes.title}>
-                    Commentaires des yoovizers
-                  </Typography>
-                  <Rating />
-                </div>
-                <img
-                  src="/images/pen_black.png"
-                  alt="create comment"
-                  className={classes.pen}
-                />
-              </div>
+    <div>
+      {uniqueCapsuleById
+        .filter((caps) => {
+          return caps.capsule_id === Number(id);
+        })
+        .map((caps) => (
+          <div>
+            <div className={classes.head}>
+              <Avatar className={classes.avatar} alt="Profile Picture" src="" />
+              <Typography className={classes.duree}>
+                {caps.duration_video <= 60
+                  ? `${caps.duration_video} sec`
+                  : `${Math.floor(caps.duration_video / 60)}m${
+                      caps.duration_video % 60
+                    }s`}
+              </Typography>
             </div>
-          ))}
-      </div>
-    </>
+            <div className={classes.video}>
+              <ReactPlayer
+                className={classes.video}
+                url={caps.url_video}
+                width="100"
+                height="100"
+              />
+            </div>
+            <div className={classes.outchip}>
+              <Chip
+                className={classes.chip}
+                label="Quartier"
+                variant="outlined"
+                color="primary"
+                size="small"
+              />
+              <Chip
+                className={classes.chip}
+                label="Place"
+                variant="outlined"
+                color="primary"
+                size="small"
+              />
+              <Chip
+                className={classes.chip}
+                label="Rue"
+                variant="outlined"
+                color="primary"
+                size="small"
+              />
+            </div>
+            <div>
+              <Typography className={classes.name}>
+                {caps.capsule_name}
+              </Typography>
+            </div>
+            <div className={classes.description}>
+              <Typography>{caps.description}</Typography>
+            </div>
+            <span className={classes.horizontalLine} />
+            <div className={classes.comment}>
+              <div>
+                <Typography className={classes.title}>
+                  Commentaires des yoovizers
+                </Typography>
+                <Rating />
+              </div>
+              <img
+                src="/images/pen_black.png"
+                alt="create comment"
+                className={classes.pen}
+              />
+            </div>
+          </div>
+        ))}
+    </div>
   );
 };
 
