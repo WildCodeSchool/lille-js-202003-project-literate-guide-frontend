@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { Fab } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+import * as _ from 'lodash';
 import Capsule from '../capsule/Capsule';
 import { ApiContext } from '../../contexts/ApiContext';
 
@@ -13,6 +14,11 @@ const ListButtonStyles = makeStyles((theme) => ({
     position: 'fixed',
     bottom: theme.spacing(11),
     right: theme.spacing(2),
+  },
+  '@global': {
+    '*::-webkit-scrollbar': {
+      display: 'none',
+    },
   },
   listContainer: {
     display: 'flex',
@@ -29,7 +35,7 @@ const ListButtonStyles = makeStyles((theme) => ({
   },
   capsuleContainer: {
     display: 'flex',
-    overflow: 'auto',
+    overflowX: 'auto',
   },
   horizontalLine: {
     display: 'flex',
@@ -45,7 +51,8 @@ const CapsuleList = () => {
   const { poi, capsules } = useContext(ApiContext);
 
   const interestPoints = [...poi];
-  const capsulePoints = [...capsules];
+
+  const capsulePoints = _.uniqBy([...capsules], 'capsule_id');
 
   return (
     <>
@@ -63,7 +70,7 @@ const CapsuleList = () => {
                       return pois.poi_name === capsule.poi_name;
                     })
                     .map((capsule) => (
-                      <Capsule key={capsule.id} capsule={capsule} />
+                      <Capsule key={capsule.capsule_id} capsule={capsule} />
                     ))}
                 </div>
               )}
