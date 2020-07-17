@@ -2,9 +2,18 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+body {
+  padding: 0;
+  margin: 0;
+}
 
 html,
 body,
+#map {
+  height: 100%;
+  width: 100%;
+}
+
 div,
 span,
 applet,

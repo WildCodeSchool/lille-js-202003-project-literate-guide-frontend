@@ -10,9 +10,10 @@ const Leaflet = () => {
   return (
     <>
       <Map
+        id="map"
         center={value}
         zoom={16}
-        style={{ height: '85vh', zIndex: 0 }}
+        style={{ height: '100%', zIndex: 0 }}
         closePopupOnClick="true"
       >
         <TileLayer
