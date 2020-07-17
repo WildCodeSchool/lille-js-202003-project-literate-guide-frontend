@@ -2,22 +2,22 @@ import React, { useContext } from 'react';
 import * as _ from 'lodash';
 import { makeStyles } from '@material-ui/core/styles';
 import Parcours from '../parcours/Parcours';
-import Leaflet from '../map/Map';
+//import Leaflet from '../map/Map';
 import { ApiContext } from '../../contexts/ApiContext';
+import '../../App.scss';
+import './ParcoursList.scss';
 
 const CoursesListStyles = makeStyles(() => ({
-  parcours: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-  },
   parcoursMap: {
-    height: '350px',
+    height: '30%',
+    gridRow: '1/2',
   },
   parcoursInfo: {
     display: 'flex',
-    height: '80%',
+    height: 'auto',
     padding: '20px 20px 100px 20px',
+    zIndex: '5',
+    gridRow: '2/3',
   },
   parcoursCapsule: {
     display: 'flex',
@@ -39,18 +39,21 @@ const ParcoursList = () => {
   const uniqueCourseByID = _.uniqBy(parcours, 'course_id');
 
   return (
-    <div className={classes.parcours}>
-      <div className={classes.parcoursMap}>
-        <Leaflet />
-      </div>
-      <div className={classes.parcoursInfo}>
-        {parcours && (
-          <div className={classes.parcoursCapsule}>
-            {uniqueCourseByID.map((parc) => (
-              <Parcours key={parc.id} parcours={parc} fullparcours={parcours} />
-            ))}
-          </div>
-        )}
+    <div className="content">
+      <div className="parcours">
+        <div className={classes.parcoursInfo}>
+          {parcours && (
+            <div className={classes.parcoursCapsule}>
+              {uniqueCourseByID.map((parc) => (
+                <Parcours
+                  key={parc.id}
+                  parcours={parc}
+                  fullparcours={parcours}
+                />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

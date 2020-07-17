@@ -6,10 +6,12 @@ const NavBarStyles = makeStyles(() => ({
   },
   navBar: {
     background: 'linear-gradient(45deg, #F15348 30%, #DA7B2F 90%)',
+    position: 'fixed',
     height: '4.5rem',
     display: 'flex',
     justifyContent: 'center',
     alignContent: 'center',
+    Zindex: '300',
   },
   menuTool: {
     display: 'flex',

@@ -4,6 +4,8 @@ import { Fab } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import Leaflet from '../map/Map';
+import '../../App.scss';
+import './Explore.scss';
 
 const ListButtonStyles = makeStyles((theme) => ({
   root: {
@@ -12,8 +14,9 @@ const ListButtonStyles = makeStyles((theme) => ({
     bottom: theme.spacing(11),
     right: theme.spacing(2),
   },
-  mapContainer: {
-    height: '85vh',
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
   },
 }));
 
@@ -21,17 +24,19 @@ function Explore() {
   const classes = ListButtonStyles();
 
   return (
-    <div className={classes.mapContainer}>
-      <Leaflet />
-      <Fab
-        component={Link}
-        to="/capsules"
-        color="secondary"
-        className={classes.root}
-        aria-label="change"
-      >
-        <ListIcon color="primary" />
-      </Fab>
+    <div className="content">
+      <div className="explore">
+        <Leaflet />
+        <Fab
+          component={Link}
+          to="/capsules"
+          color="secondary"
+          className={classes.root}
+          aria-label="change"
+        >
+          <ListIcon color="primary" />
+        </Fab>
+      </div>
     </div>
   );
 }
