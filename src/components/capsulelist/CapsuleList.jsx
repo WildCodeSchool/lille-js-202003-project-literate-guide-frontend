@@ -29,7 +29,7 @@ const ListButtonStyles = makeStyles((theme) => ({
   },
   capsuleContainer: {
     display: 'flex',
-    overflow: 'scroll',
+    overflow: 'auto',
   },
   horizontalLine: {
     display: 'flex',
