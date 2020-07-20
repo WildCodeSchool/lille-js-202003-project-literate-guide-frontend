@@ -21,7 +21,7 @@
 .parcoursInfo {
   display: flex;
   justify-content: center;
-  padding: 15px 3px 3px 3px;
+  padding: 5px 3px 3px 3px;
   margin-bottom: 10px;
 }
 
@@ -47,14 +47,5 @@
   }
   .mapContainer {
     display: none;
-  }
-}
-
-@media (min-width: 980px) {
-  .parcours {
-    grid-template-rows: 40% 60%;
-  }
-  .mapContainer {
-    height: 20vh;
   }
 }
