@@ -8,6 +8,7 @@ import TuneIcon from '@material-ui/icons/Tune';
 import NavBarStyles from './NavbarStyles';
 import TabTag from '../tabtag/TabTag';
 import '../../App.scss';
+
 export default function NavBar() {
   const [open, setOpen] = useState(false);
 
