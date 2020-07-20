@@ -21,14 +21,15 @@
 .parcoursInfo {
   display: flex;
   justify-content: center;
-  padding: 13px 3px 3px 3px;
+  padding: 15px 3px 3px 3px;
+  margin-bottom: 10px;
 }
 
 .parcoursCapsule {
   display: flex;
   flex-direction: row;
   height: auto;
-  width: 80%;
+  width: 100%;
   overflow-x: auto;
   padding: 0 17px 17px 0;
 }
@@ -53,15 +54,7 @@
   .parcours {
     grid-template-rows: 40% 60%;
   }
-  .parcoursInfo {
-    width: 950px;
-  }
   .mapContainer {
-    height: 30vh;
-  }
-}
-@media (min-width: 1000px) {
-  .parcoursInfo {
-    width: 1300px;
+    height: 20vh;
   }
 }
