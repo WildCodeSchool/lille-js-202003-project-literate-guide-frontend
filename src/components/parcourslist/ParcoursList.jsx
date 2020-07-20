@@ -18,18 +18,20 @@ const ParcoursList = () => {
         <div className="mapContainer ">
           <Leaflet />
         </div>
-        <div className="parcoursInfo">
-          {parcours && (
-            <div className="parcoursCapsule">
-              {uniqueCourseByID.map((parc) => (
-                <Parcours
-                  key={parc.id}
-                  parcours={parc}
-                  fullparcours={parcours}
-                />
-              ))}
-            </div>
-          )}
+        <div className="ParcoursWrap">
+          <div className="parcoursInfo">
+            {parcours && (
+              <div className="parcoursCapsule">
+                {uniqueCourseByID.map((parc) => (
+                  <Parcours
+                    key={parc.id}
+                    parcours={parc}
+                    fullparcours={parcours}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
