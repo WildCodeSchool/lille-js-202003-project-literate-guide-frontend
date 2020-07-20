@@ -18,7 +18,7 @@ const ParcoursList = () => {
         <div className="mapContainer ">
           <Leaflet />
         </div>
-        <div className="ParcoursWrap">
+        <div className="parcoursWrap">
           <div className="parcoursInfo">
             {parcours && (
               <div className="parcoursCapsule">

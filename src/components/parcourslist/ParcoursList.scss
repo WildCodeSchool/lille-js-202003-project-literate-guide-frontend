@@ -1,32 +1,34 @@
 .parcours {
   display: grid;
-  grid-template-rows: 20% 80%;
+  grid-template-rows: 1fr 2fr;
   grid-template-columns: 1fr;
-  row-gap: 1.5px;
-  position: relative;
+  justify-content: space-between;
+  align-content: center;
+  row-gap: 5px;
   width: 100vw;
 }
 
 .mapContainer {
   grid-row: 1/2;
-  height: 20vh;
+  height: 100%;
   width: 100vw;
 }
-.ParcoursWrap {
-  grid-row: 2/3;
-  height: auto;
+.parcoursWrap {
+  grid-row: 2 / 3;
+  height: 100%;
   width: 100vw;
 }
 .parcoursInfo {
   display: flex;
-  margin: 7px;
-  padding: 3px 3px 3px 3px;
+  justify-content: center;
+  padding: 13px 3px 3px 3px;
 }
 
 .parcoursCapsule {
   display: flex;
   flex-direction: row;
-  width: 700px;
+  height: auto;
+  width: 80%;
   overflow-x: auto;
   padding: 0 17px 17px 0;
 }
@@ -35,6 +37,10 @@
 }
 
 @media (max-width: 350px) {
+  .parcoursWrap {
+    grid-row-start: 1;
+    grid-row-end: 4;
+  }
   .parcoursCapsule {
     width: 300px;
   }
@@ -42,25 +48,20 @@
     display: none;
   }
 }
-@media (max-width: 480px) {
-  .parcoursCapsule {
-    width: 400px;
+
+@media (min-width: 980px) {
+  .parcours {
+    grid-template-rows: 40% 60%;
+  }
+  .parcoursInfo {
+    width: 950px;
+  }
+  .mapContainer {
+    height: 30vh;
   }
 }
-
-// @media (max-width: 680px) {
-//   .parcoursInfo {
-//     width: 700px;
-//   }
-// }
-
-// @media (max-width: 980px) {
-//   .parcoursInfo {
-//     width: 1000px;
-//   }
-// }
-// @media (max-width: 1200px) {
-//   .parcoursInfo {
-//     width: 1300px;
-//   }
-// }
+@media (min-width: 1000px) {
+  .parcoursInfo {
+    width: 1300px;
+  }
+}
