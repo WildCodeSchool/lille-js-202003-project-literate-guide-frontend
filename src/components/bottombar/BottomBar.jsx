@@ -38,7 +38,7 @@ export default function LabelBottomNavigation() {
         />
         <BottomNavigationAction
           component={Link}
-          to="Parcours"
+          to="/Parcours"
           classes={{
             root: classes.element,
             selected: classes.selected,
@@ -50,7 +50,7 @@ export default function LabelBottomNavigation() {
         <FabButton />
         <BottomNavigationAction
           component={Link}
-          to="Favoris"
+          to="/Favoris"
           classes={{
             root: classes.element,
             selected: classes.selected,
@@ -61,7 +61,7 @@ export default function LabelBottomNavigation() {
         />
         <BottomNavigationAction
           component={Link}
-          to="Profil"
+          to="/Profil"
           classes={{
             root: classes.element,
             selected: classes.selected,
