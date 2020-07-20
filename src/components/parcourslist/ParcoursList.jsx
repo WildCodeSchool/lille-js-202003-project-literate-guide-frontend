@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import * as _ from 'lodash';
 import { makeStyles } from '@material-ui/core/styles';
 import Parcours from '../parcours/Parcours';
-import Leaflet from '../map/Map';
 import { ApiContext } from '../../contexts/ApiContext';
+import MapParcours from '../map/MapParcours';
 
 const CoursesListStyles = makeStyles(() => ({
   parcours: {
@@ -41,7 +41,7 @@ const ParcoursList = () => {
   return (
     <div className={classes.parcours}>
       <div className={classes.parcoursMap}>
-        <Leaflet />
+        <MapParcours />
       </div>
       <div className={classes.parcoursInfo}>
         {parcours && (
