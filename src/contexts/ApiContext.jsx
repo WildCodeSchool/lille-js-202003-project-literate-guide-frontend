@@ -9,6 +9,7 @@ export const ApiProvider = (props) => {
   const [poi, setPoi] = useState([]);
   const [capsules, setCapsules] = useState([]);
   const [course, setCourse] = useState([]);
+  const [tags, setTags] = useState([]);
   const value = {
     poi,
     setPoi,
@@ -16,6 +17,8 @@ export const ApiProvider = (props) => {
     setCapsules,
     course,
     setCourse,
+    tags,
+    setTags,
   };
 
   const getPoi = () => {
@@ -36,10 +39,17 @@ export const ApiProvider = (props) => {
     });
   };
 
+  const getTags = () => {
+    axios.get(`${backend}/tags`).then((res) => {
+      setCourse(res.data);
+    });
+  };
+
   useEffect(() => {
     getCapsules();
     getPoi();
     getCourse();
+    getTags();
   }, []);
 
   const { children } = props;

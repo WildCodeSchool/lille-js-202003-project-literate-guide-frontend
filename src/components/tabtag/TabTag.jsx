@@ -1,123 +1,52 @@
 import React from 'react';
 import Chip from '@material-ui/core/Chip';
+import * as _ from 'lodash';
+import Typography from '@material-ui/core/Typography';
 import TabTagStyles from './TabTagStyles';
 
-export default function TabBar() {
+const TabTag = (selectTag, category) => {
   const classes = TabTagStyles();
+
+  const uniqueCategory = _.uniqBy(category, 'category');
 
   return (
     <>
       <div className={classes.tags}>
         <div>
-          <h2 className={classes.title}>
+          <Typography className={classes.title}>
             Choisissez vos centres d&apos;intérêts
-          </h2>
+          </Typography>
         </div>
         <hr className={classes.hr} />
+        {uniqueCategory.map((cat) => {
+          console.log(cat.category);
+          return (
+            <div>
+              <Typography className={classes.subTitle}>
+                {cat.category}
+              </Typography>
+            </div>
+          );
+        })}
         <div>
-          <h2 className={classes.subTitle}>Types</h2>
+          <Typography className={classes.subTitle}>
+            {selectTag.category}
+          </Typography>
         </div>
 
         <div>
           <Chip
             className={classes.chip}
-            label="Quartier"
-            variant="outlined"
-            color="secondary"
-            size="small"
-          />
-          <Chip
-            className={classes.chip}
-            label="Place"
-            variant="outlined"
-            color="secondary"
-            size="small"
-          />
-          <Chip
-            className={classes.chip}
-            label="Rue"
-            variant="outlined"
-            color="secondary"
-            size="small"
-          />
-          <Chip
-            className={classes.chip}
-            label="Monument"
-            variant="outlined"
-            color="secondary"
-            size="small"
-          />
-          <Chip
-            className={classes.chip}
-            label="Musée"
-            variant="outlined"
-            color="secondary"
-            size="small"
-          />
-          <Chip
-            className={classes.chip}
-            label="Parc"
-            variant="outlined"
-            color="secondary"
-            size="small"
-          />
-          <Chip
-            className={classes.chip}
-            label="Street Art"
-            variant="outlined"
-            color="secondary"
-            size="small"
-          />
-          <Chip
-            className={classes.chip}
-            label="Curiosité"
+            label={selectTag.label}
             variant="outlined"
             color="secondary"
             size="small"
           />
         </div>
         <hr className={classes.hr} />
-        <div>
-          <h2 className={classes.subTitle}>Styles</h2>
-        </div>
-        <div>
-          <Chip
-            className={classes.chip}
-            label="Enfants"
-            variant="outlined"
-            color="secondary"
-            size="small"
-          />
-          <Chip
-            className={classes.chip}
-            label="Humour"
-            variant="outlined"
-            color="secondary"
-            size="small"
-          />
-          <Chip
-            className={classes.chip}
-            label="Quizz"
-            variant="outlined"
-            color="secondary"
-            size="small"
-          />
-          <Chip
-            className={classes.chip}
-            label="Teaser"
-            variant="outlined"
-            color="secondary"
-            size="small"
-          />
-          <Chip
-            className={classes.chip}
-            label="Name"
-            variant="outlined"
-            color="secondary"
-            size="small"
-          />
-        </div>
       </div>
     </>
   );
-}
+};
+
+export default TabTag;
