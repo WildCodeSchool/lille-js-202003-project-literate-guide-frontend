@@ -68,9 +68,11 @@ const ParcoursStyles = makeStyles(() => ({
 
 const Parcours = ({ parcours, fullparcours }) => {
   const classes = ParcoursStyles();
-
-  const uniqueLabels = _.uniqBy(fullparcours, 'label');
-
+  const filterUnique = [...fullparcours].filter((fil) => {
+    return fil.course_id === parcours.course_id;
+  });
+  const uniqueLabels = _.uniqBy(filterUnique, 'label');
+  console.log(filterUnique);
   return (
     <>
       <div className={classes.pageContainer}>
@@ -83,24 +85,20 @@ const Parcours = ({ parcours, fullparcours }) => {
           />
           <div className={classes.contentContainer}>
             <div className={classes.outchip}>
-              {uniqueLabels
-                .filter((parc) => {
-                  return parcours.course_id === parc.course_id;
-                })
-                .map((parc) => {
-                  return (
-                    <Chip
-                      className={classes.chip}
-                      label={parc.label}
-                      variant="outlined"
-                      color="primary"
-                      size="small"
-                    />
-                  );
-                })}
+              {uniqueLabels.map((parc) => {
+                return (
+                  <Chip
+                    className={classes.chip}
+                    label={parc.label}
+                    variant="outlined"
+                    color="primary"
+                    size="small"
+                  />
+                );
+              })}
             </div>
             <div className={classes.parcoursHeader}>
-              <Link to={`/courseInfo/${parcours.course_id}`}>
+              <Link to={`/parcoursinfo/${parcours.course_id}`}>
                 <Typography className={classes.name}>
                   <Box lineHeight={1.2}>{parcours.course_name}</Box>
                 </Typography>

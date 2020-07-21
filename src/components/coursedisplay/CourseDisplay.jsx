@@ -70,34 +70,41 @@ const CourseDisplay = () => {
   const { course } = useContext(ApiContext);
   const { id } = useParams();
 
-  const uniqueCourseById = _.uniqBy([...course], 'course_id');
-  const uniqueLabels = _.uniqBy([...course], 'label');
+  const parcours = [...course];
+
+  const uniqueCourseById = _.uniqBy([...parcours], 'course_id');
+  const filterUnique = [...parcours].filter((fil) => {
+    return fil.course_id === Number(id);
+  });
+  const uniquePoiById = _.uniqBy(filterUnique, 'poi_id');
+  const uniqueLabels = _.uniqBy(filterUnique, 'label');
 
   return (
     <div>
-      {uniqueCourseById
-        .filter((courses) => {
-          return courses.id === Number(id);
-        })
-        .map((courses) => (
-          <div>
-            <div className={classes.head}>
-              <Avatar className={classes.avatar} alt="Profile Picture" src="" />
-            </div>
-            <div className={classes.video}>
-              <ReactPlayer
-                className={classes.video}
-                url={courses.course_teaser}
-                width="100"
-                height="100"
-              />
-            </div>
-            <div className={classes.outchip}>
-              {uniqueLabels
-                .filter((parc) => {
-                  return course.course_id === parc.course_id;
-                })
-                .map((parc) => {
+      {uniqueCourseById &&
+        uniqueCourseById
+          .filter((courses) => {
+            return courses.course_id === Number(id);
+          })
+          .map((courses) => (
+            <div>
+              <div className={classes.head}>
+                <Avatar
+                  className={classes.avatar}
+                  alt="Profile Picture"
+                  src=""
+                />
+              </div>
+              <div className={classes.video}>
+                <ReactPlayer
+                  className={classes.video}
+                  url={courses.course_teaser}
+                  width="100"
+                  height="100"
+                />
+              </div>
+              <div className={classes.outchip}>
+                {uniqueLabels.map((parc) => {
                   return (
                     <Chip
                       className={classes.chip}
@@ -108,18 +115,29 @@ const CourseDisplay = () => {
                     />
                   );
                 })}
+              </div>
+              <div>
+                <Typography className={classes.name}>
+                  {courses.course_name}
+                </Typography>
+              </div>
+              <div className={classes.description}>
+                <Typography>{courses.course_description}</Typography>
+              </div>
+              <span className={classes.horizontalLine} />
+              <div>
+                <Typography className={classes.name}>
+                  Les endroits que vous allez découvrir :
+                </Typography>
+                {uniquePoiById.map((onePoi) => (
+                  <div className={classes.description}>
+                    <Typography>{onePoi.poi_name}</Typography>
+                  </div>
+                ))}
+                <span className={classes.horizontalLine} />
+              </div>
             </div>
-            <div>
-              <Typography className={classes.name}>
-                {courses.course_name}
-              </Typography>
-            </div>
-            <div className={classes.description}>
-              <Typography>{courses.course_description}</Typography>
-            </div>
-            <span className={classes.horizontalLine} />
-          </div>
-        ))}
+          ))}
     </div>
   );
 };
