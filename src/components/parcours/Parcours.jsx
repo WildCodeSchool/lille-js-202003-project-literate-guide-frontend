@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Card from '@material-ui/core/Card';
 import Chip from '@material-ui/core/Chip';
 import * as _ from 'lodash';
@@ -8,6 +8,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import ReactPlayer from 'react-player';
 import PropTypes from 'prop-types';
+import CurrentCourseContext from '../../contexts/CurrentCourseContext';
 
 const ParcoursStyles = makeStyles(() => ({
   outcard: {
@@ -70,6 +71,13 @@ const Parcours = ({ parcours, fullparcours }) => {
 
   const uniqueLabels = _.uniqBy(fullparcours, 'label');
 
+  const contextValue = useContext(CurrentCourseContext);
+
+  const handleButtonClick = (e) => {
+    const data = e.currentTarget.id;
+    contextValue.updateMap(data);
+  };
+
   return (
     <>
       <div className={classes.pageContainer}>
@@ -117,8 +125,10 @@ const Parcours = ({ parcours, fullparcours }) => {
                 variant="contained"
                 size="small"
                 className={classes.buttonSample}
+                id={parcours.course_id}
+                onClick={handleButtonClick}
               >
-                Voir un extrait
+                Voir le parcours
               </Button>
               <Button
                 variant="contained"
