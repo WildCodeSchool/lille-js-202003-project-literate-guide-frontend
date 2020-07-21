@@ -1,0 +1,22 @@
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: auto;
+  grid-template-rows: 4.5rem auto 4.5rem;
+  grid-template-areas:
+    'header'
+    'content'
+    'footer';
+  row-gap: 0;
+}
+.header {
+  grid-area: header;
+  grid-row: 1/2;
+}
+.content {
+  grid-area: content;
+}
+.footer {
+  grid-area: footer;
+  grid-row: 3/4;
+}
