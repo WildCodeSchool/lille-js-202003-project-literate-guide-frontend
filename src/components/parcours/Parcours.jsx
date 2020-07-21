@@ -2,6 +2,7 @@ import React from 'react';
 import Card from '@material-ui/core/Card';
 import Chip from '@material-ui/core/Chip';
 import * as _ from 'lodash';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -99,9 +100,11 @@ const Parcours = ({ parcours, fullparcours }) => {
                 })}
             </div>
             <div className={classes.parcoursHeader}>
-              <Typography className={classes.name}>
-                <Box lineHeight={1.2}>{parcours.course_name}</Box>
-              </Typography>
+              <Link to={`/courseInfo/${parcours.course_id}`}>
+                <Typography className={classes.name}>
+                  <Box lineHeight={1.2}>{parcours.course_name}</Box>
+                </Typography>
+              </Link>
               <Chip
                 className={classes.price}
                 label={`${parcours.price} €`}

@@ -16,6 +16,7 @@ import { LocationProvider } from './contexts/LocationContext';
 import { ApiProvider } from './contexts/ApiContext';
 import CapsuleFull from './components/capsulefull/CapsuleFull';
 import './App.scss';
+import CourseDisplay from './components/coursedisplay/CourseDisplay';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
                 <Route path="/AddCapsule" component={AddCapsule} />
                 <Route path="/AddParcours" component={AddParcours} />
                 <Route path="/CapsuleInfo/:id" component={CapsuleFull} />
+                <Route path="/CourseInfo/:id" component={CourseDisplay} />
               </Switch>
               <BottomBar />
             </ApiProvider>
