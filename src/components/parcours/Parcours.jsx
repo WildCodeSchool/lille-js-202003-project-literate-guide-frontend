@@ -72,7 +72,7 @@ const Parcours = ({ parcours, fullparcours }) => {
     return fil.course_id === parcours.course_id;
   });
   const uniqueLabels = _.uniqBy(filterUnique, 'label');
-  console.log(filterUnique);
+
   return (
     <>
       <div className={classes.pageContainer}>
