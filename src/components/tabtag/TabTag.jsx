@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const TabTagStyles = makeStyles(() => ({
   chip: {
-    margin: '2px',
+    margin: '3px',
   },
 }));
 
