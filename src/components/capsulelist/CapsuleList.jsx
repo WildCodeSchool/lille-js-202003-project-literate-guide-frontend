@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import MapIcon from '@material-ui/icons/Map';
 import Typography from '@material-ui/core/Typography';
 import { Fab } from '@material-ui/core';
@@ -49,46 +49,25 @@ const CapsuleList = () => {
 
   const interestPoints = [...poi];
   const capsulePoints = [...capsules];
-  console.log(interestPoints.latitude);
+  console.log([...poi]);
 
-  // function distance() {
-  //   const radlat1 = (Math.PI * latGeoloc) / 180;
-  //   const radlat2 = (Math.PI * latPoi) / 180;
-  //   const theta = lngGeoloc - lngPoi;
-  //   const radtheta = (Math.PI * theta) / 180;
-  //   let dist =
-  //     Math.sin(radlat1) * Math.sin(radlat2) +
-  //     Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-  //   if (latGeoloc === latPoi && lngGeoloc === lngPoi) {
-  //     return 0;
-  //   }
-  //   if (dist > 1) {
-  //     dist = 1;
-  //   } else {
-  //     dist = Math.acos(dist);
-  //     dist = (dist * 180) / Math.PI;
-  //     dist = dist * 60 * 1.1515;
-  //     dist = dist * 1.609344;
-  //     //kilomètre
-  //   }
-  //   return dist;
-  // }
+  useEffect(() => {
+    const latGeoloc = [...value][0];
+    const lngGeoloc = [...value][1];
+    const poiDistanceLat = [...interestPoints].latitude;
+    const poiDistanceLng = [...interestPoints].longitude;
+    const PoiDistance = [];
 
-  // const distance = (interestPoints) => {
-  //   const latGeoloc = [...value][0];
-  //   const lngGeoloc = [...value][1];
-
-  //   const result = Math.sqrt(
-  //     (interestPoints.latitude[0] - latGeoloc) *
-  //       111 *
-  //       ((interestPoints.latitude[0] - latGeoloc) * 111) +
-  //       (interestPoints.longitude[1] - lngGeoloc) *
-  //         70 *
-  //         ((interestPoints.longitude[1] - lngGeoloc) * 70)
-  //   );
-  //   interestPoints.distance = result.toFixed(3);
-  //   return interestPoints;
-  // };
+    const result = Math.sqrt(
+      (poiDistanceLat - latGeoloc) *
+        111 *
+        ((poiDistanceLat - latGeoloc) * 111) +
+        (poiDistanceLng - lngGeoloc) * 70 * ((poiDistanceLng - lngGeoloc) * 70)
+    );
+    PoiDistance.distance = result.toFixed(3);
+    return getNear(PoiDistance);
+  }, [getNear]);
+  console.log(near);
 
   return (
     <>
