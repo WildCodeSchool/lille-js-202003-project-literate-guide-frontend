@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Map, TileLayer, CircleMarker } from 'react-leaflet';
 import { LocationContext } from '../../contexts/LocationContext';
-import MarkerExplore from '../marker/MarkerExplore';
+import MarkerParcours from '../marker/MarkerParcours';
 import 'leaflet/dist/leaflet.css';
 
 const MapParcours = () => {
@@ -14,7 +14,6 @@ const MapParcours = () => {
         center={value}
         zoom={16}
         style={{ height: '100%', zIndex: 0 }}
-        closePopupOnClick="true"
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
@@ -28,7 +27,7 @@ const MapParcours = () => {
           fillOpacity="1"
           weight="2"
         />
-        <MarkerExplore />
+        <MarkerParcours />
       </Map>
     </>
   );
