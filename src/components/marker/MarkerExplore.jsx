@@ -61,7 +61,7 @@ const MarkerExplore = () => {
           );
         })}
       {currentPoi !== 0 && (
-        <div>
+        <div className="sizePopUp">
           <Dialog
             open={open}
             onClose={handleClose}

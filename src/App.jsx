@@ -15,10 +15,11 @@ import CapsuleList from './components/capsulelist/CapsuleList';
 import { LocationProvider } from './contexts/LocationContext';
 import { ApiProvider } from './contexts/ApiContext';
 import CapsuleFull from './components/capsulefull/CapsuleFull';
+import './App.scss';
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Router>
         <MuiThemeProvider theme={theme}>
           <LocationProvider>

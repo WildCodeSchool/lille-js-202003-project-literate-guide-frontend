@@ -7,6 +7,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import * as _ from 'lodash';
 import Capsule from '../capsule/Capsule';
 import { ApiContext } from '../../contexts/ApiContext';
+import '../../App.scss';
+import './CapsuleList.scss';
 
 const ListButtonStyles = makeStyles((theme) => ({
   root: {
@@ -20,23 +22,12 @@ const ListButtonStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
-  listContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    paddingBottom: 70,
-    paddingLeft: 20,
-    paddingTop: 20,
-    paddingRight: 20,
-  },
   poiName: {
     color: '#F15348',
     fontWeight: 'bold',
     fontSize: 18,
   },
-  capsuleContainer: {
-    display: 'flex',
-    overflowX: 'auto',
-  },
+
   horizontalLine: {
     display: 'flex',
     border: '0.8px solid #FFD3C8',
@@ -56,38 +47,42 @@ const CapsuleList = () => {
 
   return (
     <>
-      {interestPoints && (
-        <div className={classes.listContainer}>
-          {interestPoints.map((pois) => (
-            <div className={classes.poiContainer}>
-              <Typography key={pois.id} className={classes.poiName}>
-                {pois.poi_name}
-              </Typography>
-              {capsulePoints && (
-                <div className={classes.capsuleContainer}>
-                  {capsulePoints
-                    .filter((capsule) => {
-                      return pois.poi_name === capsule.poi_name;
-                    })
-                    .map((capsule) => (
-                      <Capsule key={capsule.capsule_id} capsule={capsule} />
-                    ))}
+      <div className="content">
+        <div className="wrap">
+          {interestPoints && (
+            <div className="listContainer">
+              {interestPoints.map((pois) => (
+                <div className="poiContainer">
+                  <Typography key={pois.id} className={classes.poiName}>
+                    {pois.poi_name}
+                  </Typography>
+                  {capsulePoints && (
+                    <div className="capsuleContainer">
+                      {capsulePoints
+                        .filter((capsule) => {
+                          return pois.poi_name === capsule.poi_name;
+                        })
+                        .map((capsule) => (
+                          <Capsule key={capsule.capsule_id} capsule={capsule} />
+                        ))}
+                    </div>
+                  )}
+                  <span className={classes.horizontalLine} />
                 </div>
-              )}
-              <span className={classes.horizontalLine} />
+              ))}
             </div>
-          ))}
+          )}
+          <Fab
+            component={Link}
+            to="/"
+            color="secondary"
+            className={classes.root}
+            aria-label="change"
+          >
+            <MapIcon color="primary" />
+          </Fab>
         </div>
-      )}
-      <Fab
-        component={Link}
-        to="/"
-        color="secondary"
-        className={classes.root}
-        aria-label="change"
-      >
-        <MapIcon color="primary" />
-      </Fab>
+      </div>
     </>
   );
 };

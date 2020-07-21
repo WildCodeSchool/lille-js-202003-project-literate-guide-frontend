@@ -7,6 +7,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import TuneIcon from '@material-ui/icons/Tune';
 import NavBarStyles from './NavbarStyles';
 import TabTag from '../tabtag/TabTag';
+import '../../App.scss';
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
@@ -20,23 +21,25 @@ export default function NavBar() {
 
   const classes = NavBarStyles();
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <AppBar position="static" className={classes.navBar}>
-        <Toolbar className={classes.menuTool}>
-          <IconButton color="inherit">
-            <NotificationsIcon />
-          </IconButton>
-          <img src="/images/logo.png" alt="logo" className={classes.img} />
-          <IconButton onClick={openDrawer} color="inherit">
-            <TuneIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <div>
-        <SwipeableDrawer anchor="right" open={open} onClose={closeDrawer}>
-          <TabTag />
-        </SwipeableDrawer>
+    <div className="header">
+      <div className={classes.root}>
+        <CssBaseline />
+        <AppBar position="static" className={classes.navBar}>
+          <Toolbar className={classes.menuTool}>
+            <IconButton color="inherit">
+              <NotificationsIcon />
+            </IconButton>
+            <img src="/images/logo.png" alt="logo" className={classes.img} />
+            <IconButton onClick={openDrawer} color="inherit">
+              <TuneIcon />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        <div>
+          <SwipeableDrawer anchor="right" open={open} onClose={closeDrawer}>
+            <TabTag />
+          </SwipeableDrawer>
+        </div>
       </div>
     </div>
   );

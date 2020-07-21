@@ -1,0 +1,51 @@
+.parcours {
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  grid-template-columns: 1fr;
+  justify-content: space-between;
+  align-content: center;
+  row-gap: 5px;
+  width: 100vw;
+}
+
+.mapContainer {
+  grid-row: 1/2;
+  height: 100%;
+  width: 100vw;
+}
+.parcoursWrap {
+  grid-row: 2 / 3;
+  height: 100%;
+  width: 100vw;
+}
+.parcoursInfo {
+  display: flex;
+  justify-content: center;
+  padding: 5px 3px 3px 3px;
+  margin-bottom: 10px;
+}
+
+.parcoursCapsule {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 100%;
+  overflow-x: auto;
+  padding: 0 17px 17px 0;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 350px) {
+  .parcoursWrap {
+    grid-row-start: 1;
+    grid-row-end: 4;
+  }
+  .parcoursCapsule {
+    width: 300px;
+  }
+  .mapContainer {
+    display: none;
+  }
+}
