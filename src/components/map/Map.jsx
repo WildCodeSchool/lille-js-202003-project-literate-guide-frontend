@@ -22,7 +22,16 @@ const Leaflet = () => {
           attribution='&copy; Openstreetmap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         <CircleMarker
-          className="circle"
+          className="circle-back"
+          center={value}
+          radius={30}
+          color="#FFFFFF"
+          fillColor="#F15348"
+          fillOpacity="1"
+          weight="0"
+        />
+        <CircleMarker
+          className="circle-front"
           center={value}
           radius={10}
           color="#FFFFFF"
