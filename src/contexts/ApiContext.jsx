@@ -41,7 +41,7 @@ export const ApiProvider = (props) => {
 
   const getTags = () => {
     axios.get(`${backend}/tags`).then((res) => {
-      setCourse(res.data);
+      setTags(res.data);
     });
   };
 

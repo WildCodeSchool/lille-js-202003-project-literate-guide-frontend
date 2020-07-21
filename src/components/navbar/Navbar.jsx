@@ -6,8 +6,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import Toolbar from '@material-ui/core/Toolbar';
 import TuneIcon from '@material-ui/icons/Tune';
 import NavBarStyles from './NavbarStyles';
-import TabTag from '../tabtag/TabTag';
-// import TabTagList from '../tabtaglist/TabTagList';
+import TabTagList from '../tabtaglist/TabTagList';
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
@@ -36,7 +35,7 @@ export default function NavBar() {
       </AppBar>
       <div>
         <SwipeableDrawer anchor="right" open={open} onClose={closeDrawer}>
-          <TabTag />
+          <TabTagList />
         </SwipeableDrawer>
       </div>
     </div>
