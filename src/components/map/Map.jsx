@@ -3,6 +3,7 @@ import { Map, TileLayer, CircleMarker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { LocationContext } from '../../contexts/LocationContext';
 import MarkerExplore from '../marker/MarkerExplore';
+import './Icon.scss';
 
 const Leaflet = () => {
   const value = useContext(LocationContext);
@@ -21,6 +22,16 @@ const Leaflet = () => {
           attribution='&copy; Openstreetmap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         <CircleMarker
+          className="circle-back"
+          center={value}
+          radius={30}
+          color="#FFFFFF"
+          fillColor="#F15348"
+          fillOpacity="1"
+          weight="0"
+        />
+        <CircleMarker
+          className="circle-front"
           center={value}
           radius={10}
           color="#FFFFFF"

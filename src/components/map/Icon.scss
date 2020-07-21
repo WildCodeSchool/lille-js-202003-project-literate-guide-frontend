@@ -1,0 +1,16 @@
+@keyframes fade {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 0.4;
+  }
+}
+
+.circle-back {
+  animation: fade 0.5s infinite alternate;
+}
+
+.circle-front {
+  position: relative;
+}
