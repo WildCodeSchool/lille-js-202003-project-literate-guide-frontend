@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import Chip from '@material-ui/core/Chip';
+import * as _ from 'lodash';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -59,8 +60,12 @@ const CapsuleStyles = makeStyles((theme) => ({
   },
 }));
 
-const Capsule = ({ capsule }) => {
+const Capsule = ({ capsule, allcapsules }) => {
   const classes = CapsuleStyles();
+  const filterUnique = [...allcapsules].filter((fil) => {
+    return fil.capsule_id === capsule.capsule_id;
+  });
+  const uniqueLabels = _.uniqBy(filterUnique, 'label');
 
   return (
     <>
@@ -88,41 +93,17 @@ const Capsule = ({ capsule }) => {
               </Typography>
             </div>
             <div className={classes.outchip}>
-              <Chip
-                className={classes.chip}
-                label="Quartier"
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
-              <Chip
-                className={classes.chip}
-                label="Place"
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
-              <Chip
-                className={classes.chip}
-                label="Rue"
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
-              <Chip
-                className={classes.chip}
-                label="Monument"
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
-              <Chip
-                className={classes.chip}
-                label="Musée"
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
+              {uniqueLabels.map((parc) => {
+                return (
+                  <Chip
+                    className={classes.chip}
+                    label={parc.label}
+                    variant="outlined"
+                    color="primary"
+                    size="small"
+                  />
+                );
+              })}
             </div>
           </div>
         </Card>
@@ -135,4 +116,5 @@ export default Capsule;
 
 Capsule.propTypes = {
   capsule: PropTypes.string.isRequired,
+  allcapsules: PropTypes.string.isRequired,
 };
