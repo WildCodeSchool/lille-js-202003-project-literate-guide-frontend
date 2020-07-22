@@ -73,7 +73,10 @@ const CapsuleFull = () => {
   const { id } = useParams();
 
   const uniqueCapsuleById = _.uniqBy([...capsules], 'capsule_id');
-
+  const filterUnique = [...capsules].filter((fil) => {
+    return fil.capsule_id === Number(id);
+  });
+  const uniqueLabels = _.uniqBy(filterUnique, 'label');
   return (
     <div>
       {uniqueCapsuleById
@@ -101,27 +104,17 @@ const CapsuleFull = () => {
               />
             </div>
             <div className={classes.outchip}>
-              <Chip
-                className={classes.chip}
-                label="Quartier"
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
-              <Chip
-                className={classes.chip}
-                label="Place"
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
-              <Chip
-                className={classes.chip}
-                label="Rue"
-                variant="outlined"
-                color="primary"
-                size="small"
-              />
+              {uniqueLabels.map((parc) => {
+                return (
+                  <Chip
+                    className={classes.chip}
+                    label={parc.label}
+                    variant="outlined"
+                    color="primary"
+                    size="small"
+                  />
+                );
+              })}
             </div>
             <div>
               <Typography className={classes.name}>
