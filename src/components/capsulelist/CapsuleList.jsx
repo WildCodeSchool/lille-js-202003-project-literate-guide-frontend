@@ -42,7 +42,6 @@ const CapsuleList = () => {
   const { poi, capsules } = useContext(ApiContext);
 
   const interestPoints = [...poi];
-  const allCaps = [...capsules];
   const capsulePoints = _.uniqBy([...capsules], 'capsule_id');
 
   return (
@@ -63,11 +62,7 @@ const CapsuleList = () => {
                           return pois.poi_name === capsule.poi_name;
                         })
                         .map((capsule) => (
-                          <Capsule
-                            key={capsule.capsule_id}
-                            capsule={capsule}
-                            allcapsules={allCaps}
-                          />
+                          <Capsule key={capsule.capsule_id} capsule={capsule} />
                         ))}
                     </div>
                   )}
