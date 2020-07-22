@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import Chip from '@material-ui/core/Chip';
@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import ReactPlayer from 'react-player';
 import PropTypes from 'prop-types';
+import { ApiContext } from '../../contexts/ApiContext';
 
 const CapsuleStyles = makeStyles((theme) => ({
   root: {
@@ -60,9 +61,11 @@ const CapsuleStyles = makeStyles((theme) => ({
   },
 }));
 
-const Capsule = ({ capsule, allcapsules }) => {
+const Capsule = ({ capsule }) => {
+  const { capsules } = useContext(ApiContext);
   const classes = CapsuleStyles();
-  const filterUnique = [...allcapsules].filter((fil) => {
+  const allCaps = [...capsules];
+  const filterUnique = [...allCaps].filter((fil) => {
     return fil.capsule_id === capsule.capsule_id;
   });
   const uniqueLabels = _.uniqBy(filterUnique, 'label');
@@ -116,5 +119,4 @@ export default Capsule;
 
 Capsule.propTypes = {
   capsule: PropTypes.string.isRequired,
-  allcapsules: PropTypes.string.isRequired,
 };
