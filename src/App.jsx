@@ -17,6 +17,7 @@ import { ApiProvider } from './contexts/ApiContext';
 import CapsuleFull from './components/capsulefull/CapsuleFull';
 import CourseDisplay from './components/coursedisplay/CourseDisplay';
 import MapFullParcours from './components/map/MapFullParcours';
+import './App.scss';
 
 function App() {
   return (
