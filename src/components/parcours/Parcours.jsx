@@ -131,13 +131,15 @@ const Parcours = ({ parcours, fullparcours }) => {
               >
                 Voir le parcours
               </Button>
-              <Button
-                variant="contained"
-                size="small"
-                className={classes.buttonBuy}
-              >
-                Essai gratuit
-              </Button>
+              <Link to={`/parcoursmap/${parcours.course_id}`}>
+                <Button
+                  variant="contained"
+                  size="small"
+                  className={classes.buttonBuy}
+                >
+                  Essai gratuit
+                </Button>
+              </Link>
             </div>
           </div>
         </Card>
