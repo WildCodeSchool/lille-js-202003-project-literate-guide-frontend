@@ -36,7 +36,6 @@ const MarkerExplore = () => {
   };
   const uniqueCapsuleById = _.uniqBy(allCaps, 'capsule_id');
 
-  console.log(id);
   return (
     <div>
       {allCourses
