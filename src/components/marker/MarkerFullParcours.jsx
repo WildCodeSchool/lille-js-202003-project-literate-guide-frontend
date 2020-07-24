@@ -21,6 +21,7 @@ const MarkerExplore = () => {
   const [open, setOpen] = useState(false);
   const [scroll, setScroll] = useState('body');
   const [currentPoi, setPoi] = useState(0);
+  const [currentCap, setCap] = useState(0);
 
   const handleScroll = (scrollType) => () => {
     setScroll(scrollType);
@@ -52,6 +53,7 @@ const MarkerExplore = () => {
                 handleOpen();
                 handleScroll('body');
                 setPoi(parc.poi_id);
+                setCap(parc.capsule_id);
               }}
             />
           );
@@ -67,7 +69,9 @@ const MarkerExplore = () => {
           >
             {uniqueCapsuleById
               .filter((caps) => {
-                return currentPoi === caps.poi_id;
+                return (
+                  currentPoi === caps.poi_id && currentCap === caps.capsule_id
+                );
               })
               .map((cap) => {
                 return (
