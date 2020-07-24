@@ -62,7 +62,12 @@ const CapsuleList = () => {
                           return pois.poi_name === capsule.poi_name;
                         })
                         .map((capsule) => (
-                          <Capsule key={capsule.capsule_id} capsule={capsule} />
+                          <div className="capsuleDisp">
+                            <Capsule
+                              key={capsule.capsule_id}
+                              capsule={capsule}
+                            />
+                          </div>
                         ))}
                     </div>
                   )}

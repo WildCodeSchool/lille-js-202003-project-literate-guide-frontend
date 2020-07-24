@@ -1,8 +1,4 @@
 .wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  row-gap: 3px;
   position: relative;
 }
 .listContainer {
@@ -17,31 +13,20 @@
 .capsuleContainer {
   display: flex;
   flex-direction: row;
-  width: 300px;
   overflow-x: auto;
+  width: 95vw;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
-@media (min-width: 480px) {
-  .capsuleContainer {
-    width: 500px;
-  }
+.capsuleDisp {
+  margin: 5px;
+  width: 300px;
 }
 
-@media (min-width: 680px) {
-  .capsuleContainer {
-    width: 700px;
-  }
-}
-
-@media (min-width: 980px) {
-  .capsuleContainer {
-    width: 1000px;
-  }
-}
-@media (min-width: 1200px) {
-  .capsuleContainer {
-    width: 1300px;
+@media (max-width: 350px) {
+  .capsuleDisp {
+    margin: 5px;
+    width: 250px;
   }
 }
