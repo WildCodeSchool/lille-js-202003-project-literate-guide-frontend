@@ -16,7 +16,7 @@ import { LocationProvider } from './contexts/LocationContext';
 import { ApiProvider } from './contexts/ApiContext';
 import CapsuleFull from './components/capsulefull/CapsuleFull';
 import CourseDisplay from './components/coursedisplay/CourseDisplay';
-import './App.scss';
+import MapFullParcours from './components/map/MapFullParcours';
 
 function App() {
   return (
@@ -36,6 +36,7 @@ function App() {
                 <Route path="/AddParcours" component={AddParcours} />
                 <Route path="/CapsuleInfo/:id" component={CapsuleFull} />
                 <Route path="/parcoursinfo/:id" component={CourseDisplay} />
+                <Route path="/parcoursmap/:id" component={MapFullParcours} />
               </Switch>
               <BottomBar />
             </ApiProvider>
