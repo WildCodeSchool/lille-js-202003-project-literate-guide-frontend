@@ -78,7 +78,7 @@ const CapsuleList = () => {
           )}
           <Fab
             component={Link}
-            to="/"
+            to="/Explore"
             color="secondary"
             className={classes.root}
             aria-label="change"

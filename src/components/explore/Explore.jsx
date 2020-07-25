@@ -31,7 +31,7 @@ function Explore() {
         </div>
         <Fab
           component={Link}
-          to="/capsules"
+          to="/"
           color="secondary"
           className={classes.root}
           aria-label="change"

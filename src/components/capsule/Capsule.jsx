@@ -94,7 +94,7 @@ const Capsule = ({ capsule }) => {
             <div className={classes.content}>
               <Link
                 className={classes.link}
-                to={`/capsuleInfo/${capsule.capsule_id}`}
+                to={`/CapsuleInfo/${capsule.capsule_id}`}
               >
                 <Typography className={classes.name}>
                   <Box className={classes.box}>{capsule.capsule_name}</Box>
