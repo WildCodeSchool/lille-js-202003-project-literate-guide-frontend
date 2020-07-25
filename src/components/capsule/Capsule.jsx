@@ -18,7 +18,7 @@ const CapsuleStyles = makeStyles((theme) => ({
     right: theme.spacing(2),
   },
   outcard: {
-    width: 300,
+    width: '100%',
     borderRadius: 10,
     marginRight: 20,
     marginTop: 20,
@@ -33,17 +33,24 @@ const CapsuleStyles = makeStyles((theme) => ({
     paddingRight: 10,
     paddingTop: 6,
     paddingBottom: 5,
+    position: 'relative',
   },
   content: {
     display: 'flex',
     justifyContent: 'space-between',
-    height: '40px',
+    height: '50px',
     marginBottom: 10,
   },
   name: {
+    display: 'flex',
+    flexWrap: 'wrap',
     fontWeight: 'bold',
-    overflow: 'hidden',
     paddingRight: '10px',
+  },
+  box: {
+    width: '200px',
+    height: '50px',
+    overflow: 'scroll',
   },
   duree: {
     display: 'flex',
@@ -58,6 +65,9 @@ const CapsuleStyles = makeStyles((theme) => ({
   chip: {
     marginBottom: 5,
     marginRight: 4,
+  },
+  link: {
+    textDecoration: 'none',
   },
 }));
 
@@ -82,9 +92,12 @@ const Capsule = ({ capsule }) => {
           />
           <div className={classes.contentContainer}>
             <div className={classes.content}>
-              <Link to={`/CapsuleInfo/${capsule.capsule_id}`}>
+              <Link
+                className={classes.link}
+                to={`/CapsuleInfo/${capsule.capsule_id}`}
+              >
                 <Typography className={classes.name}>
-                  <Box lineHeight={1.2}>{capsule.capsule_name}</Box>
+                  <Box className={classes.box}>{capsule.capsule_name}</Box>
                 </Typography>
               </Link>
               <Typography className={classes.duree}>
