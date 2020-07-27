@@ -141,7 +141,10 @@ const Parcours = ({ parcours, fullparcours }) => {
               >
                 Voir le parcours
               </Button>
-              <Link to={`/ParcoursMap/${parcours.course_id}`}>
+              <Link
+                to={`/ParcoursMap/${parcours.course_id}`}
+                className={classes.link}
+              >
                 <Button
                   variant="contained"
                   size="small"
