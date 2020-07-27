@@ -36,8 +36,11 @@ const ParcoursStyles = makeStyles(() => ({
   price: {
     backgroundColor: '#f15348',
     fontWeight: 'bold',
+    fontSize: 15,
     color: '#FFFFFF',
     border: 'none',
+    textDecoration: 'line-through',
+    textDecorationColor: 'black',
   },
   description: {
     fontSize: 13,
