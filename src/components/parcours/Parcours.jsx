@@ -109,7 +109,7 @@ const Parcours = ({ parcours, fullparcours }) => {
               })}
             </div>
             <div className={classes.parcoursHeader}>
-              <Link to={`/parcoursinfo/${parcours.course_id}`}>
+              <Link to={`/ParcoursInfo/${parcours.course_id}`}>
                 <Typography className={classes.name}>
                   <Box lineHeight={1.2}>{parcours.course_name}</Box>
                 </Typography>
@@ -134,7 +134,7 @@ const Parcours = ({ parcours, fullparcours }) => {
               >
                 Voir le parcours
               </Button>
-              <Link to={`/parcoursmap/${parcours.course_id}`}>
+              <Link to={`/ParcoursMap/${parcours.course_id}`}>
                 <Button
                   variant="contained"
                   size="small"
