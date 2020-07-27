@@ -13,6 +13,9 @@ const ListButtonStyles = makeStyles((theme) => ({
     position: 'absolute',
     bottom: theme.spacing(11),
     right: theme.spacing(2),
+    width: '60px',
+    height: '60px',
+    boxShadow: '0px 6px 11px -1px rgba(0,0,0,0.15)',
   },
   container: {
     display: 'flex',
@@ -31,7 +34,7 @@ function Explore() {
         </div>
         <Fab
           component={Link}
-          to="/capsules"
+          to="/"
           color="secondary"
           className={classes.root}
           aria-label="change"

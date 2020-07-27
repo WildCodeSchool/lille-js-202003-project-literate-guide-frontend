@@ -16,6 +16,9 @@ const ListButtonStyles = makeStyles((theme) => ({
     position: 'fixed',
     bottom: theme.spacing(11),
     right: theme.spacing(2),
+    width: '60px',
+    height: '60px',
+    boxShadow: '0px 6px 11px -1px rgba(0,0,0,0.15)',
   },
   '@global': {
     '*::-webkit-scrollbar': {
@@ -62,7 +65,12 @@ const CapsuleList = () => {
                           return pois.poi_name === capsule.poi_name;
                         })
                         .map((capsule) => (
-                          <Capsule key={capsule.capsule_id} capsule={capsule} />
+                          <div className="capsuleDisp">
+                            <Capsule
+                              key={capsule.capsule_id}
+                              capsule={capsule}
+                            />
+                          </div>
                         ))}
                     </div>
                   )}
@@ -73,7 +81,7 @@ const CapsuleList = () => {
           )}
           <Fab
             component={Link}
-            to="/"
+            to="/Explore"
             color="secondary"
             className={classes.root}
             aria-label="change"

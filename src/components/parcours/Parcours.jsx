@@ -36,8 +36,11 @@ const ParcoursStyles = makeStyles(() => ({
   price: {
     backgroundColor: '#f15348',
     fontWeight: 'bold',
+    fontSize: 15,
     color: '#FFFFFF',
     border: 'none',
+    textDecoration: 'line-through',
+    textDecorationColor: 'black',
   },
   description: {
     fontSize: 13,
@@ -106,7 +109,7 @@ const Parcours = ({ parcours, fullparcours }) => {
               })}
             </div>
             <div className={classes.parcoursHeader}>
-              <Link to={`/parcoursinfo/${parcours.course_id}`}>
+              <Link to={`/ParcoursInfo/${parcours.course_id}`}>
                 <Typography className={classes.name}>
                   <Box lineHeight={1.2}>{parcours.course_name}</Box>
                 </Typography>
@@ -131,13 +134,15 @@ const Parcours = ({ parcours, fullparcours }) => {
               >
                 Voir le parcours
               </Button>
-              <Button
-                variant="contained"
-                size="small"
-                className={classes.buttonBuy}
-              >
-                Essai gratuit
-              </Button>
+              <Link to={`/ParcoursMap/${parcours.course_id}`}>
+                <Button
+                  variant="contained"
+                  size="small"
+                  className={classes.buttonBuy}
+                >
+                  Essai gratuit
+                </Button>
+              </Link>
             </div>
           </div>
         </Card>

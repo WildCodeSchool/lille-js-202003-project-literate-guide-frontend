@@ -27,7 +27,11 @@ export default function NavBar() {
           <IconButton color="inherit">
             <NotificationsIcon />
           </IconButton>
-          <img src="/images/logo.png" alt="logo" className={classes.img} />
+          <div className={classes.logo}>
+            <img src="/images/logo.png" alt="logo" className={classes.img} />
+            <h3 className={classes.alpha}>Version Alpha</h3>
+          </div>
+
           <IconButton onClick={openDrawer} color="inherit">
             <TuneIcon />
           </IconButton>

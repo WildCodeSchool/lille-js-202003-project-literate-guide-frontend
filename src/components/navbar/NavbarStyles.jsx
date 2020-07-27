@@ -21,5 +21,15 @@ const NavBarStyles = makeStyles(() => ({
   img: {
     width: '9rem',
   },
+  logo: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  alpha: {
+    paddingLeft: 20,
+    fontStyle: 'italic',
+    fontSize: 14,
+  },
 }));
 export default NavBarStyles;

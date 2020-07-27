@@ -16,6 +16,7 @@ import { LocationProvider } from './contexts/LocationContext';
 import { ApiProvider } from './contexts/ApiContext';
 import CapsuleFull from './components/capsulefull/CapsuleFull';
 import CourseDisplay from './components/coursedisplay/CourseDisplay';
+import MapFullParcours from './components/map/MapFullParcours';
 import './App.scss';
 
 function App() {
@@ -27,15 +28,16 @@ function App() {
             <ApiProvider>
               <NavBar />
               <Switch>
-                <Route exact path="/" component={Explore} />
+                <Route exact path="/" component={CapsuleList} />
                 <Route path="/Parcours" component={ParcoursList} />
                 <Route path="/Favoris" component={Favoris} />
                 <Route path="/Profil" component={Profil} />
-                <Route path="/capsules" component={CapsuleList} />
+                <Route path="/Explore" component={Explore} />
                 <Route path="/AddCapsule" component={AddCapsule} />
                 <Route path="/AddParcours" component={AddParcours} />
                 <Route path="/CapsuleInfo/:id" component={CapsuleFull} />
-                <Route path="/parcoursinfo/:id" component={CourseDisplay} />
+                <Route path="/ParcoursInfo/:id" component={CourseDisplay} />
+                <Route path="/ParcoursMap/:id" component={MapFullParcours} />
               </Switch>
               <BottomBar />
             </ApiProvider>
