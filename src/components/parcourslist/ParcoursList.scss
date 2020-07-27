@@ -1,9 +1,9 @@
 .parcours {
   display: grid;
-  grid-template-rows: 250px auto;
+  grid-template-rows: 350px auto;
   grid-template-columns: 1fr;
   justify-content: space-between;
-  align-content: center;
+  align-content: stretch;
   row-gap: 5px;
   width: 100vw;
   height: 100%;
