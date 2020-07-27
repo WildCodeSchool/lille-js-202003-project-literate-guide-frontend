@@ -3,5 +3,43 @@
   flex-direction: column;
 }
 .mapWrap {
-  height: 100vh;
+  height: 1300px;
+}
+@media (min-height: 250px) and (max-height: 450px) {
+  .mapWrap {
+    height: 380px;
+  }
+}
+@media (min-height: 450px) and (max-height: 550px) {
+  .mapWrap {
+    height: 400px;
+  }
+}
+
+@media (min-height: 550px) and (max-height: 650px) {
+  .mapWrap {
+    height: 500px;
+  }
+}
+@media (min-height: 650px) and (max-height: 750px) {
+  .mapWrap {
+    height: 600px;
+  }
+}
+@media (min-height: 750px) and (max-height: 850px) {
+  .mapWrap {
+    height: 700px;
+  }
+}
+
+@media (min-height: 850px) and (max-height: 950px) {
+  .mapWrap {
+    height: 800px;
+  }
+}
+
+@media (min-height: 950px) and (max-height: 1050px) {
+  .mapWrap {
+    height: 900px;
+  }
 }
