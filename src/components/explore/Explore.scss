@@ -1,9 +1,10 @@
 .explore {
   display: flex;
+  height: 100%;
   flex-direction: column;
 }
 .mapWrap {
-  height: 1300px;
+  height: 100vh;
 }
 @media (min-height: 250px) and (max-height: 450px) {
   .mapWrap {
