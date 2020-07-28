@@ -26,6 +26,7 @@ const Styles = makeStyles((theme) => ({
   },
   video: {
     marginTop: 10,
+    height: '350px',
   },
   outchip: {
     margin: '10px 0px 10px 20px',
