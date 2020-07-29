@@ -4,11 +4,16 @@ import { Icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { LocationContext } from '../../contexts/LocationContext';
 import { ApiContext } from '../../contexts/ApiContext';
+import RoutingMachine from '../parcours/RoutingMachine';
+
 
 const IconStyle = new Icon({
   iconUrl: '/images/pin.png',
   iconSize: [34, 34],
 });
+
+
+
 
 const Leaflet = () => {
   const value = useContext(LocationContext);
