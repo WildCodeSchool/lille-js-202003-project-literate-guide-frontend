@@ -7,6 +7,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import TuneIcon from '@material-ui/icons/Tune';
 import NavBarStyles from './NavbarStyles';
 import TabTagList from '../tabtaglist/TabTagList';
+import '../../App.scss';
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
@@ -20,27 +21,29 @@ export default function NavBar() {
 
   const classes = NavBarStyles();
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <AppBar position="static" className={classes.navBar}>
-        <Toolbar className={classes.menuTool}>
-          <IconButton color="inherit">
-            <NotificationsIcon />
-          </IconButton>
-          <div className={classes.logo}>
-            <img src="/images/logo.png" alt="logo" className={classes.img} />
-            <h3 className={classes.alpha}>Version Alpha</h3>
-          </div>
+    <div className="header">
+      <div className={classes.root}>
+        <CssBaseline />
+        <AppBar position="static" className={classes.navBar}>
+          <Toolbar className={classes.menuTool}>
+            <IconButton color="inherit">
+              <NotificationsIcon />
+            </IconButton>
+            <div className={classes.logo}>
+              <img src="/images/logo.png" alt="logo" className={classes.img} />
+              <h3 className={classes.alpha}>Version Alpha</h3>
+            </div>
 
-          <IconButton onClick={openDrawer} color="inherit">
-            <TuneIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <div>
-        <SwipeableDrawer anchor="right" open={open} onClose={closeDrawer}>
-          <TabTagList />
-        </SwipeableDrawer>
+            <IconButton onClick={openDrawer} color="inherit">
+              <TuneIcon />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        <div>
+          <SwipeableDrawer anchor="right" open={open} onClose={closeDrawer}>
+            <TabTagList />
+          </SwipeableDrawer>
+        </div>
       </div>
     </div>
   );

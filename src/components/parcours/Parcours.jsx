@@ -23,12 +23,16 @@ const ParcoursStyles = makeStyles(() => ({
   },
   contentContainer: {
     padding: '10px',
+    height: '30%',
   },
   parcoursHeader: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
     margin: '10px 0',
+  },
+  link: {
+    textDecoration: 'none',
   },
   name: {
     fontWeight: 'bold',
@@ -109,7 +113,10 @@ const Parcours = ({ parcours, fullparcours }) => {
               })}
             </div>
             <div className={classes.parcoursHeader}>
-              <Link to={`/ParcoursInfo/${parcours.course_id}`}>
+              <Link
+                to={`/ParcoursInfo/${parcours.course_id}`}
+                className={classes.link}
+              >
                 <Typography className={classes.name}>
                   <Box lineHeight={1.2}>{parcours.course_name}</Box>
                 </Typography>
@@ -134,7 +141,10 @@ const Parcours = ({ parcours, fullparcours }) => {
               >
                 Voir le parcours
               </Button>
-              <Link to={`/ParcoursMap/${parcours.course_id}`}>
+              <Link
+                to={`/ParcoursMap/${parcours.course_id}`}
+                className={classes.link}
+              >
                 <Button
                   variant="contained"
                   size="small"

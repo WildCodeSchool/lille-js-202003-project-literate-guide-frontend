@@ -29,5 +29,5 @@ export const LocationProvider = (props) => {
 };
 
 LocationProvider.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.number).isRequired,
+  children: PropTypes.node.isRequired,
 };

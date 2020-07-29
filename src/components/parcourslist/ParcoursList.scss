@@ -1,11 +1,12 @@
 .parcours {
   display: grid;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 350px auto;
   grid-template-columns: 1fr;
   justify-content: space-between;
-  align-content: center;
+  align-content: stretch;
   row-gap: 5px;
   width: 100vw;
+  height: 100%;
 }
 
 .mapContainer {
@@ -15,7 +16,6 @@
 }
 .parcoursWrap {
   grid-row: 2 / 3;
-  height: 100%;
   width: 100vw;
 }
 .parcoursInfo {
@@ -35,17 +35,4 @@
 }
 *::-webkit-scrollbar {
   display: none;
-}
-
-@media (max-width: 350px) {
-  .parcoursWrap {
-    grid-row-start: 1;
-    grid-row-end: 4;
-  }
-  .parcoursCapsule {
-    width: 300px;
-  }
-  .mapContainer {
-    display: none;
-  }
 }
