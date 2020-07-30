@@ -3,17 +3,18 @@ import { Map, TileLayer, CircleMarker } from 'react-leaflet';
 import { LocationContext } from '../../contexts/LocationContext';
 import MarkerFullParcours from '../marker/MarkerFullParcours';
 import 'leaflet/dist/leaflet.css';
+import '../../App.scss';
 
 const MapFullParcours = () => {
   const value = useContext(LocationContext);
 
   return (
-    <>
+    <div className="content">
       <Map
         id="map"
         center={value}
         zoom={16}
-        style={{ height: '100%', zIndex: 0 }}
+        style={{ height: '100vh', zIndex: 0 }}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
@@ -39,7 +40,7 @@ const MapFullParcours = () => {
         />
         <MarkerFullParcours />
       </Map>
-    </>
+    </div>
   );
 };
 export default MapFullParcours;
