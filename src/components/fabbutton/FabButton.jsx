@@ -22,7 +22,7 @@ function FabButton() {
         <Zoom in={checked}>
           <Fab
             component={Link}
-            to="AddCapsule"
+            to="/AddCapsule"
             color="primary"
             aria-label="addCapsule"
             className={classes.addCapsule}
@@ -34,7 +34,7 @@ function FabButton() {
         <Zoom in={checked}>
           <Fab
             component={Link}
-            to="AddParcours"
+            to="/AddParcours"
             color="primary"
             aria-label="addParcours"
             className={classes.addParcours}
